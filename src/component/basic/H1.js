@@ -9,9 +9,8 @@ export default H1;
 
 const styles = StyleSheet.create({
     Title: {
-        fontFamily: "FredokaOne-Regular",
+        fontFamily: "Montserrat-Bold",
         fontSize: 25,
-        color: 'white',
-        flexWrap: "wrap",
+        lineHeight: 40
     },
 });

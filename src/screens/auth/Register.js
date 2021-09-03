@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-const Register = () => {
+const Register = ({ navigation }) => {
     return (
         <View style={{ justifyContent: 'center', alignContent: 'center', flex: 1, alignItems: 'center' }}>
             <Text>Register</Text>
