@@ -1,23 +1,19 @@
 import React from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import Heading from './Heading';
+import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import {theme} from '../../theme/theme';
 
-const Btn = () => {
-    return (
-        <View style={styles.Btn}>
-            <Heading>Sign Up</Heading>
-        </View>
-    );
+const Btn = ({children}) => {
+  return <View style={styles.Btn}>{children}</View>;
 };
 
 export default Btn;
 
 const styles = StyleSheet.create({
-    Btn: {
-        backgroundColor: '#FD3E3E',
-        paddingVertical: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: Dimensions.get('window').width - 30,
-    },
+  Btn: {
+    backgroundColor: theme.colors.primary,
+    paddingVertical: 13,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

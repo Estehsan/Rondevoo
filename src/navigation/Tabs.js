@@ -5,11 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-import FaIcon from 'react-native-vector-icons/FontAwesome5';
-import MIcon from 'react-native-vector-icons/MaterialIcons';
-import McIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Home from '../screens/Main/Home';
 import Message from '../screens/Main/Message';
@@ -25,7 +21,9 @@ const All = createStackNavigator();
 
 const Tabs = () => {
   return (
-    <All.Navigator screenOptions={{headerShown: false}} initialRouteName="Home">
+    <All.Navigator
+      screenOptions={{headerShown: false}}
+      initialRouteName="Register">
       <All.Screen name="Login" component={Login} />
       <All.Screen name="Register" component={Register} />
 
@@ -38,52 +36,26 @@ const Tabs = () => {
   );
 };
 const screenOptionStyle = {
-  headerShown: true,
+  headerShown: false,
 };
 function BottomTabNavigator() {
   return (
     <Stack.Navigator
       screenOptions={screenOptionStyle}
-      screenOptions={{headerShown: false}}>
+      tabBarOptions={{
+        activeTintColor: '#578ddd',
+        inactiveTintColor: 'black',
+        showLabel: false,
+      }}>
       <Stack.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({color}) => (
-            <MIcon
+          tabBarIcon: ({color, focused}) => (
+            <Icon
               style={Platform.OS == 'ios' ? styles.position : styles.position2}
-              name="home"
+              name={focused ? 'home' : 'home-outline'}
               size={38}
-              color={color}
-            />
-          ),
-        }}
-      />
-
-      <Stack.Screen
-        name="Message"
-        component={Message}
-        options={{
-          tabBarIcon: ({color}) => (
-            <Ionicons
-              style={Platform.OS == 'ios' ? styles.position : styles.position2}
-              name="chatbubbles"
-              size={35}
-              color={color}
-            />
-          ),
-        }}
-      />
-
-      <Stack.Screen
-        name="Call"
-        component={Call}
-        options={{
-          tabBarIcon: ({color}) => (
-            <Ionicons
-              style={Platform.OS == 'ios' ? styles.position : styles.position2}
-              name="chatbubbles"
-              size={35}
               color={color}
             />
           ),
@@ -93,10 +65,24 @@ function BottomTabNavigator() {
         name="Search"
         component={Search}
         options={{
-          tabBarIcon: ({color}) => (
-            <Ionicons
-              style={Platform.OS == 'ios' ? styles.position : styles.position2}
-              name="chatbubbles"
+          tabBarIcon: ({color, focused}) => (
+            <Icon
+              style={Platform.OS === 'ios' ? styles.position : styles.position2}
+              name={focused ? 'search' : 'search-outline'}
+              size={35}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Call"
+        component={Call}
+        options={{
+          tabBarIcon: ({color, focused}) => (
+            <Icon
+              style={Platform.OS === 'ios' ? styles.position : styles.position2}
+              name={focused ? 'call' : 'call-outline'}
               size={35}
               color={color}
             />
@@ -107,10 +93,24 @@ function BottomTabNavigator() {
         name="Activity"
         component={Activity}
         options={{
-          tabBarIcon: ({color}) => (
-            <Ionicons
+          tabBarIcon: ({color, focused}) => (
+            <Icon
+              style={Platform.OS === 'ios' ? styles.position : styles.position2}
+              name={focused ? 'notifications' : 'notifications-outline'}
+              size={35}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Message"
+        component={Message}
+        options={{
+          tabBarIcon: ({color, focused}) => (
+            <Icon
               style={Platform.OS == 'ios' ? styles.position : styles.position2}
-              name="chatbubbles"
+              name={focused ? 'chatbubble' : 'chatbubble-outline'}
               size={35}
               color={color}
             />

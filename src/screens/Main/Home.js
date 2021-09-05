@@ -1,9 +1,11 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState, useLayoutEffect} from 'react';
 import {
   Dimensions,
   FlatList,
   Image,
   StyleSheet,
+  ScrollView,
   Text,
   View,
 } from 'react-native';
@@ -17,25 +19,45 @@ import {Avatar, Searchbar} from 'react-native-paper';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {theme} from '../../theme/theme';
+import FeedPost from '../../component/HomeComponent/FeedPost';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const data1 = [
   {
     id: 1,
     name: 'john',
-    color: '#7770ff',
-    img: 'https://www.pngmart.com/files/3/Man-PNG-Pic.png',
+    postContent:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not',
+    profileImg: 'https://www.pngmart.com/files/3/Man-PNG-Pic.png',
+    postImg:
+      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    likes: 2,
+    comment: 10,
+    share: 30,
   },
   {
     id: 2,
     name: 'Charkie',
-    color: '#234efe',
-    img: 'https://www.pngmart.com/files/3/Man-PNG-Pic.png',
+    postContent:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not',
+    profileImg: 'https://www.pngmart.com/files/3/Man-PNG-Pic.png',
+    postImg:
+      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    likes: 2,
+    comment: 10,
+    share: 30,
   },
   {
     id: 3,
     name: 'Gama',
-    color: '#fb9c01',
-    img: 'https://www.pngmart.com/files/3/Man-PNG-Pic.png',
+    postContent:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not',
+    profileImg: 'https://www.pngmart.com/files/3/Man-PNG-Pic.png',
+    postImg:
+      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    likes: 2,
+    comment: 10,
+    share: 30,
   },
 ];
 const data = [
@@ -77,50 +99,64 @@ function BlueBar(props) {
 
 const Home = ({navigation}) => {
   return (
-    <Background>
+    <SafeAreaView style={styles.background}>
+      <SearchBar />
+
       <View style={styles.container}>
-        <SearchBar />
-        <H1>Find Your</H1>
-        <H1>Live Streams </H1>
-        <TopBar />
-        <H1>Categories </H1>
+        {/* <View style={styles.p30}>
+          <H1>Categories </H1>
+        </View>
         <View
-          style={{width: Dimensions.get('window').width, marginVertical: 5}}>
+          style={{
+            width: Dimensions.get('window').width,
+            marginVertical: 5,
+            paddingHorizontal: 30,
+          }}>
           <FlatList
             data={data}
             horizontal
             renderItem={({item}) => <BlueBar item={item} />}
           />
+        </View> */}
+        {/* <ScrollView> */}
+        <View>
+          {/* <View style={styles.p30}>
+            <H1>All </H1>
+          </View> */}
+          <View style={{}}>
+            <FlatList
+              data={data1}
+              keyExtractor={item => item.id}
+              renderItem={({item}) => (
+                <View
+                  style={{
+                    width: Dimensions.get('window').width,
+                    backgroundColor: 'white',
+                    marginVertical: 10,
+                    paddingHorizontal: 30,
+                    borderWidth: 0.2,
+                    borderColor: 'silver',
+                  }}>
+                  <FeedPost />
+                </View>
+              )}
+            />
+          </View>
         </View>
-        <H1>All </H1>
-        <View
-          style={{width: Dimensions.get('window').width, marginVertical: 9}}>
-          <FlatList
-            data={data1}
-            keyExtractor={item => item.id}
-            horizontal
-            showsHorizontalScrollIndicator="false"
-            renderItem={({item}) => (
-              <View style={[styles.ListOfStars, {backgroundColor: item.color}]}>
-                <WP>{item.name}</WP>
-                <Image
-                  source={{uri: item.img}}
-                  resizeMode="cover"
-                  style={{height: '100%', width: '100%', borderRadius: 40}}
-                />
-              </View>
-            )}
-          />
-        </View>
+        {/* </ScrollView> */}
       </View>
-    </Background>
+    </SafeAreaView>
   );
 };
 
 export default Home;
 
 const styles = StyleSheet.create({
-  container: {paddingHorizontal: 30},
+  background: {backgroundColor: 'white'},
+  container: {
+    backgroundColor: theme.colors.bg,
+    // paddingHorizontal: 30,
+  },
   blueBar: {
     marginVertical: 10,
     width: '86%',
@@ -145,5 +181,8 @@ const styles = StyleSheet.create({
   },
   colos: {
     color: 'red',
+  },
+  p30: {
+    paddingHorizontal: 30,
   },
 });

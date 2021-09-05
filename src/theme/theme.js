@@ -14,6 +14,17 @@ export const theme = {
     twhite: '#f9f9fb',
     tgrey: '#C4C4C4',
     tbtn: '#f85c60',
+    customShad2: {
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 5,
+      },
+      shadowOpacity: 0.36,
+      shadowRadius: 6.68,
+
+      elevation: 11,
+    },
     customShad: {
       shadowColor: '#000',
       shadowOffset: {

@@ -1,22 +1,101 @@
-import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, {useState} from 'react';
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  TextInputComponent,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {theme} from './../../theme/theme';
+import TInput from './../../component/basic/TInput';
 
-const Register = ({ navigation }) => {
-    return (
-        <View style={{ justifyContent: 'center', alignContent: 'center', flex: 1, alignItems: 'center' }}>
-            <Text>Register</Text>
+import ImgBackground from '../../component/basic/ImgBackground';
+import H1 from '../../component/basic/H1';
+import H2W from '../../component/basic/H2W';
 
+import Btn from '../../component/basic/Btn';
 
-            <Text></Text>
-            <Text></Text>
-            <Text></Text>
+const Register = ({navigation}) => {
+  const [name, setName] = useState({value: '', error: ''});
+
+  const [email, setEmail] = useState({value: '', error: ''});
+  const [password, setPassword] = useState({value: '', error: ''});
+
+  const onLoginPress = () => {
+    const EmailError = email.value ? '' : "Email Can't be empty";
+    if (EmailError) {
+      setEmail({...email, error: EmailError});
+    }
+  };
+
+  return (
+    <ImgBackground>
+      <View style={styles.container}>
+        <View style={styles.main}>
+          <H1>Register Now</H1>
+
+          <TInput
+            placeholder="Your Name"
+            label="Name"
+            error={name.error}
+            errorText={name.error}
+            onChangeText={e => {
+              setName({value: e, error: ''});
+            }}
+            value={name.value}
+          />
+          <TInput
+            placeholder="Your Email"
+            label="Email"
+            error={email.error}
+            errorText={email.error}
+            onChangeText={e => {
+              setEmail({value: e, error: ''});
+            }}
+            value={email.value}
+          />
+          <TInput
+            placeholder="Enter Your Password"
+            label="Password"
+            iconName="lock-open-outline"
+            error={password.error}
+            errorText={password.error}
+            onChangeText={e => {
+              setPassword({value: e, error: ''});
+            }}
+            value={password.value}
+            secureTextEntry
+          />
+          <View style={styles.P10}>
             <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                <Text>Go To Register Screen</Text>
+              <Btn>
+                <H2W>Register</H2W>
+              </Btn>
             </TouchableOpacity>
+          </View>
         </View>
-    )
-}
+      </View>
+    </ImgBackground>
+  );
+};
 
-export default Register
+export default Register;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    height: Dimensions.get('window').height,
+    flexDirection: 'column-reverse',
+  },
+  main: {
+    paddingVertical: 40,
+    paddingHorizontal: 30,
+    backgroundColor: theme.colors.combination,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+
+    height: '70%',
+    width: '100%',
+  },
+  P10: {paddingVertical: 20},
+});

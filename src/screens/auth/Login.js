@@ -1,22 +1,32 @@
-import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import ImgBackground from '../../component/basic/ImgBackground';
 
-const Login = ({ navigation }) => {
-    return (
-        <View style={{ justifyContent: 'center', alignContent: 'center', flex: 1, alignItems: 'center' }}>
-            <Text>Login</Text>
-
-
-            <Text></Text>
-            <Text></Text>
-            <Text></Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                <Text>Go To Register Screen</Text>
-            </TouchableOpacity>
+const Login = ({navigation}) => {
+  return (
+    <ImgBackground>
+      <View style={styles.container}>
+        <View style={styles.main}>
+          <Text>Login</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+            <Text>Go To Register Screen</Text>
+          </TouchableOpacity>
         </View>
-    )
-}
+      </View>
+    </ImgBackground>
+  );
+};
 
-export default Login
+export default Login;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'red',
+  },
+  main: {
+    backgroundColor: 'blue',
+
+    height: '80%',
+    width: '100%',
+  },
+});
