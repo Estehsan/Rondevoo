@@ -3,6 +3,7 @@ import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import {Avatar, Searchbar} from 'react-native-paper';
 import {theme} from './../../theme/theme';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import TI from '../basic/TI';
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -14,18 +15,14 @@ const SearchBar = () => {
     <View style={styles.main}>
       <View style={styles.left}>
         <Avatar.Image
-          size={45}
+          size={30}
           source={{
             uri: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
           }}
         />
       </View>
       <View style={styles.center}>
-        <Searchbar
-          placeholder="Search"
-          onChangeText={onChangeSearch}
-          value={searchQuery}
-        />
+        <TI />
       </View>
       <View style={styles.right}>
         <View style={styles.left}>
@@ -38,7 +35,7 @@ const SearchBar = () => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <Icon size={25} name="coins" color="black" />
+            <Icon size={22} name="coins" color="black" />
           </View>
         </View>
       </View>
@@ -60,6 +57,7 @@ const styles = StyleSheet.create({
     ...theme.colors.customShad,
   },
   left: {justifyContent: 'center'},
-  center: {width: '70%', marginHorizontal: 40},
+  center: {width: '91%', marginHorizontal: 40},
   right: {justifyContent: 'center'},
+  // searchBar: {height: 30},
 });
