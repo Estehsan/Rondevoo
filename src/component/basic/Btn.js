@@ -10,7 +10,7 @@ export default Btn;
 
 const styles = StyleSheet.create({
   Btn: {
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.main,
     paddingVertical: 13,
     borderRadius: 20,
     justifyContent: 'center',

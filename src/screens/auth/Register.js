@@ -15,6 +15,8 @@ import H1 from '../../component/basic/H1';
 import H2W from '../../component/basic/H2W';
 
 import Btn from '../../component/basic/Btn';
+import Background from '../../component/basic/Background';
+import Logo from '../../component/basic/Logo';
 
 const Register = ({navigation}) => {
   const [name, setName] = useState({value: '', error: ''});
@@ -30,13 +32,18 @@ const Register = ({navigation}) => {
   };
 
   return (
-    <ImgBackground>
+    <Background>
       <View style={styles.container}>
         <View style={styles.main}>
-          <H1>Register Now</H1>
+          <View style={styles.Top}>
+            <Logo />
+            <View style={styles.P10}></View>
+            <H1>Register Now</H1>
+            <View style={styles.P5}></View>
+          </View>
 
           <TInput
-            placeholder="Your Name"
+            placeholder="Name"
             label="Name"
             error={name.error}
             errorText={name.error}
@@ -46,7 +53,7 @@ const Register = ({navigation}) => {
             value={name.value}
           />
           <TInput
-            placeholder="Your Email"
+            placeholder="Email"
             label="Email"
             error={email.error}
             errorText={email.error}
@@ -56,7 +63,7 @@ const Register = ({navigation}) => {
             value={email.value}
           />
           <TInput
-            placeholder="Enter Your Password"
+            placeholder="Password"
             label="Password"
             iconName="lock-open-outline"
             error={password.error}
@@ -76,7 +83,7 @@ const Register = ({navigation}) => {
           </View>
         </View>
       </View>
-    </ImgBackground>
+    </Background>
   );
 };
 
@@ -85,7 +92,7 @@ export default Register;
 const styles = StyleSheet.create({
   container: {
     height: Dimensions.get('window').height,
-    flexDirection: 'column-reverse',
+    justifyContent: 'center',
   },
   main: {
     paddingVertical: 40,
@@ -97,5 +104,7 @@ const styles = StyleSheet.create({
     height: '70%',
     width: '100%',
   },
+  Top: {alignItems: 'center'},
   P10: {paddingVertical: 20},
+  P5: {paddingVertical: 10},
 });

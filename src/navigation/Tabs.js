@@ -23,7 +23,7 @@ const Tabs = () => {
   return (
     <All.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName="Register">
+      initialRouteName="Search">
       <All.Screen name="Login" component={Login} />
       <All.Screen name="Register" component={Register} />
 
@@ -41,6 +41,7 @@ const screenOptionStyle = {
 function BottomTabNavigator() {
   return (
     <Stack.Navigator
+      initialRouteName="Search"
       screenOptions={screenOptionStyle}
       tabBarOptions={{
         activeTintColor: '#578ddd',
