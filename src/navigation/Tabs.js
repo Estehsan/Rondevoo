@@ -13,8 +13,13 @@ import Call from '../screens/Main/Call';
 import Search from '../screens/Main/Search';
 import Activity from '../screens/Main/Activity';
 
+import Profile from './../screens/Main/SearchExtra/Profile';
+
 import Login from '../screens/auth/Login';
 import Register from '../screens/auth/Register';
+import GetStarted from '../screens/auth/GetStarted';
+
+import SearchListInfo from '../screens/Main/SearchExtra/SearchListInfo';
 
 const Stack = createBottomTabNavigator();
 const All = createStackNavigator();
@@ -23,7 +28,9 @@ const Tabs = () => {
   return (
     <All.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName="Search">
+      initialRouteName="Message">
+      <All.Screen name="GetStarted" component={GetStarted} />
+
       <All.Screen name="Login" component={Login} />
       <All.Screen name="Register" component={Register} />
 
@@ -32,6 +39,14 @@ const Tabs = () => {
       <All.Screen name="Call" component={BottomTabNavigator} />
       <All.Screen name="Activity" component={BottomTabNavigator} />
       <All.Screen name="Search" component={BottomTabNavigator} />
+
+      <All.Screen name="Profile" component={Profile} />
+
+      <All.Screen
+        name="SearchListInfo"
+        options={{headerShown: true}}
+        component={SearchListInfo}
+      />
     </All.Navigator>
   );
 };
@@ -41,7 +56,7 @@ const screenOptionStyle = {
 function BottomTabNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName="Search"
+      initialRouteName="Message"
       screenOptions={screenOptionStyle}
       tabBarOptions={{
         activeTintColor: '#578ddd',
@@ -94,6 +109,7 @@ function BottomTabNavigator() {
         name="Activity"
         component={Activity}
         options={{
+          headerShown: true,
           tabBarIcon: ({color, focused}) => (
             <Icon
               style={Platform.OS === 'ios' ? styles.position : styles.position2}
@@ -108,6 +124,7 @@ function BottomTabNavigator() {
         name="Message"
         component={Message}
         options={{
+          headerShown: true,
           tabBarIcon: ({color, focused}) => (
             <Icon
               style={Platform.OS == 'ios' ? styles.position : styles.position2}

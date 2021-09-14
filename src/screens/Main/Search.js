@@ -1,5 +1,12 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text, View, FlatList} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import SearchBar from '../../component/HomeComponent/SearchBar';
@@ -70,7 +77,19 @@ function Category({navigation}) {
       <FlatList
         data={data1}
         keyExtractor={item => item.id}
-        renderItem={({item}) => <SearchList item={item} />}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('SearchListInfo', {
+                id: item.id,
+                Title: item.Title,
+                iconName: item.iconName,
+                sub: item.sub,
+              })
+            }>
+            <SearchList item={item} />
+          </TouchableOpacity>
+        )}
         ItemSeparatorComponent={() => <View style={styles.seperator} />}
       />
     </View>

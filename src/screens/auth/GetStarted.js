@@ -19,16 +19,6 @@ import Background from '../../component/basic/Background';
 import Logo from '../../component/basic/Logo';
 
 const Login = ({navigation}) => {
-  const [email, setEmail] = useState({value: '', error: ''});
-  const [password, setPassword] = useState({value: '', error: ''});
-
-  const onLoginPress = () => {
-    const EmailError = email.value ? '' : "Email Can't be empty";
-    if (EmailError) {
-      setEmail({...email, error: EmailError});
-    }
-  };
-
   return (
     <Background>
       <View style={styles.container}>
@@ -36,39 +26,22 @@ const Login = ({navigation}) => {
           <View style={styles.Top}>
             <Logo />
             <View style={styles.P10}></View>
-            <H1>Login</H1>
+            <H1>Get Started</H1>
             <View style={styles.P5}></View>
           </View>
 
-          <TInput
-            placeholder="Email"
-            label="Email"
-            error={email.error}
-            errorText={email.error}
-            onChangeText={e => {
-              setEmail({value: e, error: ''});
-            }}
-            value={email.value}
-          />
-          <TInput
-            placeholder="Password"
-            label="Password"
-            iconName="lock-open-outline"
-            error={password.error}
-            errorText={password.error}
-            onChangeText={e => {
-              setPassword({value: e, error: ''});
-            }}
-            value={password.value}
-            secureTextEntry
-          />
           <View style={styles.P10}>
-            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
               <Btn>
                 <H2W>Login</H2W>
               </Btn>
             </TouchableOpacity>
           </View>
+          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+            <Btn>
+              <H2W>Register</H2W>
+            </Btn>
+          </TouchableOpacity>
         </View>
       </View>
     </Background>

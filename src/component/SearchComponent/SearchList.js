@@ -1,23 +1,14 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import H2 from './../basic/H2';
 import H3 from './../basic/H3';
 import Subtitle from './../basic/SubTitle';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const SearchList = ({navigation, item}) => {
+const SearchList = ({item, navigation}) => {
+  // const navigation = useNavigation();
+
   return (
-    <TouchableOpacity
-      onPress={() =>
-        navigation.navigate('Details', {
-          id: item.id,
-          Title: item.Title,
-          iconName: item.iconName,
-          sub: item.sub,
-        })
-      }
-      style={styles.main}>
+    <View style={styles.main}>
       <View style={styles.Icon}>
         <Icon name={item.iconName} size={38} />
       </View>
@@ -25,7 +16,7 @@ const SearchList = ({navigation, item}) => {
         <Subtitle>{item.Title}</Subtitle>
         <H3>{item.sub}</H3>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 

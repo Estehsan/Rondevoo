@@ -75,7 +75,13 @@ const Register = ({navigation}) => {
             secureTextEntry
           />
           <View style={styles.P10}>
-            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.reset({
+                  index: 1,
+                  routes: [{name: 'Home'}],
+                })
+              }>
               <Btn>
                 <H2W>Register</H2W>
               </Btn>
