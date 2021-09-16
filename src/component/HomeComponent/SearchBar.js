@@ -5,10 +5,10 @@ import {theme} from './../../theme/theme';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import TI from '../basic/TI';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/native';
+// import {useNavigation} from '@react-navigation/native';
 
-const SearchBar = ({Profile}) => {
-  const navigation = useNavigation();
+const SearchBar = ({navigation, children}) => {
+  // const navigation = useNavigation();
 
   const [searchQuery, setSearchQuery] = React.useState('');
 
@@ -41,7 +41,7 @@ const SearchBar = ({Profile}) => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <Icon size={22} name="coins" color="black" />
+            {children}
           </View>
         </View>
       </View>

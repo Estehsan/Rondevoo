@@ -2,8 +2,8 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -18,23 +18,23 @@ import Profile from './../screens/Main/SearchExtra/Profile';
 import Login from '../screens/auth/Login';
 import Register from '../screens/auth/Register';
 import GetStarted from '../screens/auth/GetStarted';
+import DrawerContent from './../component/basic/DrawerContent';
 
 import SearchListInfo from '../screens/Main/SearchExtra/SearchListInfo';
 
 const Stack = createBottomTabNavigator();
 const All = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const Tabs = () => {
   return (
-    <All.Navigator
-      screenOptions={{headerShown: false}}
-      initialRouteName="Message">
+    <All.Navigator screenOptions={{headerShown: false}} initialRouteName="Home">
       <All.Screen name="GetStarted" component={GetStarted} />
 
       <All.Screen name="Login" component={Login} />
       <All.Screen name="Register" component={Register} />
 
-      <All.Screen name="Home" component={BottomTabNavigator} />
+      <All.Screen name="Home" component={DrawerNavigator} />
       <All.Screen name="Message" component={BottomTabNavigator} />
       <All.Screen name="Call" component={BottomTabNavigator} />
       <All.Screen name="Activity" component={BottomTabNavigator} />
@@ -56,7 +56,7 @@ const screenOptionStyle = {
 function BottomTabNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName="Message"
+      initialRouteName="Home"
       screenOptions={screenOptionStyle}
       tabBarOptions={{
         activeTintColor: '#578ddd',
@@ -67,6 +67,7 @@ function BottomTabNavigator() {
         name="Home"
         component={Home}
         options={{
+          headerShown: false,
           tabBarIcon: ({color, focused}) => (
             <Icon
               style={Platform.OS == 'ios' ? styles.position : styles.position2}
@@ -136,6 +137,16 @@ function BottomTabNavigator() {
         }}
       />
     </Stack.Navigator>
+  );
+}
+
+function DrawerNavigator() {
+  return (
+    <Drawer.Navigator
+      screenOptions={{headerShown: false}}
+      drawerContent={DrawerContent}>
+      <Drawer.Screen name="Home" component={BottomTabNavigator} />
+    </Drawer.Navigator>
   );
 }
 

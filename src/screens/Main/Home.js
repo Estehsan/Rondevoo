@@ -8,6 +8,7 @@ import {
   ScrollView,
   Text,
   View,
+  TouchableOpacity,
 } from 'react-native';
 import TopBar from '../../component/HomeComponent/TopBar';
 import Background from './../../component/basic/Background';
@@ -16,6 +17,7 @@ import P from './../../component/basic/P';
 import WP from './../../component/basic/WP';
 import SearchBar from './../../component/HomeComponent/SearchBar';
 import {Avatar, Searchbar} from 'react-native-paper';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {theme} from '../../theme/theme';
@@ -100,7 +102,11 @@ function BlueBar(props) {
 const Home = ({navigation}) => {
   return (
     <SafeAreaView style={styles.background}>
-      <SearchBar />
+      <SearchBar navigation={navigation}>
+        <TouchableOpacity onPress={navigation.openDrawer}>
+          <Icon size={22} name="coins" color="black" />
+        </TouchableOpacity>
+      </SearchBar>
 
       <View style={styles.container}>
         {/* <View style={styles.p30}>
@@ -128,15 +134,7 @@ const Home = ({navigation}) => {
               data={data1}
               keyExtractor={item => item.id}
               renderItem={({item}) => (
-                <View
-                  style={{
-                    width: Dimensions.get('window').width,
-                    backgroundColor: 'white',
-                    marginVertical: 10,
-                    paddingHorizontal: 30,
-                    borderWidth: 0.2,
-                    borderColor: 'silver',
-                  }}>
+                <View style={styles.FeedPostStyle}>
                   <FeedPost />
                 </View>
               )}
@@ -184,5 +182,13 @@ const styles = StyleSheet.create({
   },
   p30: {
     paddingHorizontal: 30,
+  },
+  FeedPostStyle: {
+    width: Dimensions.get('window').width,
+    backgroundColor: 'white',
+    marginVertical: 10,
+    paddingHorizontal: 30,
+    borderWidth: 0.2,
+    borderColor: 'silver',
   },
 });

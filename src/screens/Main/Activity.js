@@ -16,35 +16,36 @@ const data1 = [
   {
     id: 1,
     Title: 'Upload A profile Picture.',
-    iconName: 'md-arrow-back',
+    img: 'https://thumbs.dreamstime.com/b/close-up-portrait-nice-person-bristle-show-finger-okey-sign-isolated-pink-color-background-203466939.jpg',
+
     sub: "Let's put a face to your profile!",
     time: '2w',
   },
   {
     id: 2,
     Title: 'Beta',
-    iconName: 'md-arrow-back',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJfa758-9Zet25uR43OnWUDxPh_5ivrKWg4g&usqp=CAU',
     sub: 'This is a Beta Subtitle',
     time: '3w',
   },
   {
     id: 21352,
     Title: 'Gamma',
-    iconName: 'md-arrow-back',
+    img: 'https://st3.depositphotos.com/1037987/15097/i/600/depositphotos_150975580-stock-photo-portrait-of-businesswoman-in-office.jpg',
     sub: 'This is a Gamma Subtitle',
     time: '1w',
   },
   {
     id: 4,
     Title: 'Gamma',
-    iconName: 'md-arrow-back',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJfa758-9Zet25uR43OnWUDxPh_5ivrKWg4g&usqp=CAU',
     sub: 'This is a Gamma Subtitle',
     time: '1w',
   },
   {
     id: 12321,
     Title: 'Gamma',
-    iconName: 'md-arrow-back',
+    img: 'md-arrow-back',
     sub: 'This is a Gamma Subtitle',
     time: '1w',
   },
@@ -66,7 +67,7 @@ const Activity = ({route, navigation}) => {
     });
   }, [navigation]);
   return (
-    <Background>
+    <View style={styles.main}>
       <View style={styles.container}>
         <View style={styles.pd}>
           <H2>This Month</H2>
@@ -78,12 +79,21 @@ const Activity = ({route, navigation}) => {
             <View style={styles.List}>
               <View style={styles.LeftBar}>
                 <View style={styles.ph}>
-                  <Avatar.Image
-                    size={30}
-                    source={{
-                      url: 'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg',
-                    }}
-                  />
+                  {item.img ? (
+                    <Avatar.Image
+                      size={30}
+                      source={{
+                        url: item.img,
+                      }}
+                    />
+                  ) : (
+                    <Avatar.Image
+                      size={30}
+                      source={{
+                        url: 'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg',
+                      }}
+                    />
+                  )}
                 </View>
                 <View style={styles.row}>
                   <H3>
@@ -98,7 +108,7 @@ const Activity = ({route, navigation}) => {
           )}
         />
       </View>
-    </Background>
+    </View>
   );
 };
 
@@ -120,11 +130,12 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#C8C8C8',
   },
-  pd: {paddingHorizontal: 20},
+  pd: {padding: 20},
   row: {
     flexDirection: 'row',
     display: 'flex',
     paddingHorizontal: 10,
     alignItems: 'center',
   },
+  main: {flex: 1, backgroundColor: 'white'},
 });
