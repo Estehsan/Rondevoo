@@ -18,7 +18,7 @@ const SearchBar = ({navigation, children}) => {
   return (
     <View style={styles.main}>
       <View style={styles.left}>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+        <TouchableOpacity onPress={navigation.openDrawer}>
           <Avatar.Image
             size={30}
             source={{
@@ -41,7 +41,9 @@ const SearchBar = ({navigation, children}) => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            {children}
+            <TouchableOpacity onPress={navigation.openDrawer}>
+              <Icon size={22} name="coins" color="black" />
+            </TouchableOpacity>
           </View>
         </View>
       </View>

@@ -41,7 +41,6 @@ const data1 = [
   {
     id: 12321,
     userName: 'Gamma',
-    img: 'md-arrow-back',
     message: 'This is a Gamma  messagetitle',
     time: '1w',
   },

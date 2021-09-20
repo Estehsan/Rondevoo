@@ -102,11 +102,7 @@ function BlueBar(props) {
 const Home = ({navigation}) => {
   return (
     <SafeAreaView style={styles.background}>
-      <SearchBar navigation={navigation}>
-        <TouchableOpacity onPress={navigation.openDrawer}>
-          <Icon size={22} name="coins" color="black" />
-        </TouchableOpacity>
-      </SearchBar>
+      <SearchBar navigation={navigation} />
 
       <View style={styles.container}>
         {/* <View style={styles.p30}>

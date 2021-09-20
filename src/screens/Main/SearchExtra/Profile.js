@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
-import {Avatar} from 'react-native-paper';
+import {Avatar, Card, Title, Paragraph} from 'react-native-paper';
 import P from '../../../component/basic/P';
 import H2 from '../../../component/basic/H2';
 import H1 from '../../../component/basic/H1';
@@ -71,15 +71,24 @@ const Profile = () => {
         </View>
       </View>
       <View style={styles.Content}>
-        <View style={styles.Feed}>
-          <H1>Feed</H1>
-        </View>
-        <View style={styles.Calls}>
-          <H1>Calls</H1>
-        </View>
-        <View style={styles.Reviews}>
-          <H1>Reviews</H1>
-        </View>
+        <Card style={styles.verticalmargin}>
+          <Card.Content>
+            <Title>Card 1</Title>
+            <Paragraph>Card content</Paragraph>
+          </Card.Content>
+        </Card>
+        <Card style={styles.verticalmargin}>
+          <Card.Content>
+            <Title>Card 2</Title>
+            <Paragraph>Card content</Paragraph>
+          </Card.Content>
+        </Card>
+        <Card style={styles.verticalmargin}>
+          <Card.Content>
+            <Title>Card 3</Title>
+            <Paragraph>Card content</Paragraph>
+          </Card.Content>
+        </Card>
       </View>
     </Background>
   );
@@ -114,7 +123,7 @@ const styles = StyleSheet.create({
   Price: {width: '25%', justifyContent: 'center', alignItems: 'center'},
   RightTop: {flexDirection: 'row', display: 'flex'},
   Bio: {paddingHorizontal: 30},
-  Content: {alignItems: 'center', paddingVertical: 10},
+  Content: {paddingVertical: 20},
   Feed: {
     width: '80%',
     backgroundColor: 'red',
@@ -135,4 +144,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'green',
   },
+  verticalmargin: {marginVertical: 5},
 });

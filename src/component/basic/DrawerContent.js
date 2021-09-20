@@ -10,12 +10,13 @@ import {
   Text,
   TouchableRipple,
   Switch,
+  Badge,
 } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 // import {SettingsIcon} from './../../assets/icons';
 
-export default function DrawerContent() {
+export default function DrawerContent({navigation}) {
   return (
     <DrawerContentScrollView>
       <View style={styles.drawerContent}>
@@ -26,8 +27,27 @@ export default function DrawerContent() {
               uri: 'https://pbs.twimg.com/profile_images/1195087399661056019/pYAaQSJS_400x400.jpg',
             }}
           />
-          <Title style={styles.title}>Tony Przybył</Title>
-          <Caption style={styles.caption}>@tony_venits</Caption>
+
+          <Title style={styles.title}>Muhammad Estehsan</Title>
+          <Caption style={styles.caption}>@Estehsan</Caption>
+          <View style={styles.KarmaBar}>
+            <View style={styles.leftKarma}>
+              <Icon size={28} name="coins" color="blue" />
+              <View style={styles.linners}>
+                <Text>Hailo</Text>
+                <Text>Hailo</Text>
+              </View>
+            </View>
+            <View style={{borderWidth: 0.5, borderColor: 'silver'}} />
+            <View style={styles.RightReddit}>
+              <Icon size={28} name="coins" color="blue" />
+
+              <View style={styles.linners}>
+                <Text>Hailo</Text>
+                <Text>Hailo</Text>
+              </View>
+            </View>
+          </View>
           <View style={styles.row}>
             <View style={styles.section}>
               <Paragraph style={[styles.paragraph, styles.caption]}>
@@ -45,7 +65,7 @@ export default function DrawerContent() {
         </View>
 
         <Drawer.Section>
-          <TouchableRipple onPress={() => {}}>
+          <TouchableRipple onPress={() => navigation.navigate('MyCalls')}>
             <View style={styles.preference}>
               <Icon
                 size={22}
@@ -53,7 +73,86 @@ export default function DrawerContent() {
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Text>Home</Text>
+              <Text>My Calls</Text>
+            </View>
+          </TouchableRipple>
+          <TouchableRipple onPress={() => navigation.navigate('UpcomingCalls')}>
+            <View style={styles.preference}>
+              <Icon
+                size={22}
+                name="coins"
+                color="black"
+                style={{paddingHorizontal: 15}}
+              />
+              <Text>Upcoming Calls</Text>
+            </View>
+          </TouchableRipple>
+          <TouchableRipple onPress={() => navigation.navigate('Request')}>
+            <View style={styles.preference}>
+              <Icon
+                size={22}
+                name="coins"
+                color="black"
+                style={{paddingHorizontal: 15}}
+              />
+              <Text>Request</Text>
+            </View>
+          </TouchableRipple>
+          <TouchableRipple
+            onPress={() => navigation.navigate('NewBookingCall')}>
+            <View style={styles.preference}>
+              <Icon
+                size={22}
+                name="coins"
+                color="black"
+                style={{paddingHorizontal: 15}}
+              />
+              <Text>New Booking Call</Text>
+            </View>
+          </TouchableRipple>
+          <TouchableRipple
+            onPress={() => navigation.navigate('NewBiddingCall')}>
+            <View style={styles.preference}>
+              <Icon
+                size={22}
+                name="coins"
+                color="black"
+                style={{paddingHorizontal: 15}}
+              />
+              <Text>New Bidding Call</Text>
+            </View>
+          </TouchableRipple>
+          <TouchableRipple onPress={() => navigation.navigate('Profile')}>
+            <View style={styles.preference}>
+              <Icon
+                size={22}
+                name="coins"
+                color="black"
+                style={{paddingHorizontal: 15}}
+              />
+              <Text>Profile</Text>
+            </View>
+          </TouchableRipple>
+          <TouchableRipple onPress={() => navigation.navigate('Setting')}>
+            <View style={styles.preference}>
+              <Icon
+                size={22}
+                name="coins"
+                color="black"
+                style={{paddingHorizontal: 15}}
+              />
+              <Text>Setting</Text>
+            </View>
+          </TouchableRipple>
+          <TouchableRipple onPress={() => navigation.navigate('Support')}>
+            <View style={styles.preference}>
+              <Icon
+                size={22}
+                name="coins"
+                color="black"
+                style={{paddingHorizontal: 15}}
+              />
+              <Text>Support</Text>
             </View>
           </TouchableRipple>
           <TouchableRipple onPress={() => {}}>
@@ -64,29 +163,7 @@ export default function DrawerContent() {
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Text>Messages</Text>
-            </View>
-          </TouchableRipple>
-          <TouchableRipple onPress={() => {}}>
-            <View style={styles.preference}>
-              <Icon
-                size={22}
-                name="coins"
-                color="black"
-                style={{paddingHorizontal: 15}}
-              />
-              <Text>Other Screens</Text>
-            </View>
-          </TouchableRipple>
-          <TouchableRipple onPress={() => {}}>
-            <View style={styles.preference}>
-              <Icon
-                size={22}
-                name="coins"
-                color="black"
-                style={{paddingHorizontal: 15}}
-              />
-              <Text>Notifications</Text>
+              <Text>Log Out</Text>
             </View>
           </TouchableRipple>
         </Drawer.Section>
@@ -132,4 +209,27 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 16,
   },
+  KarmaBar: {
+    flexDirection: 'row',
+    display: 'flex',
+    paddingVertical: 10,
+    width: '100%',
+    borderBottomWidth: 0.5,
+    borderBottomColor: 'silver',
+    justifyContent: 'space-around',
+  },
+  leftKarma: {
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    flexDirection: 'row',
+    display: 'flex',
+  },
+  RightReddit: {
+    justifyContent: 'space-around',
+    alignItems: 'center',
+
+    flexDirection: 'row',
+    display: 'flex',
+  },
+  linners: {flexDirection: 'column', paddingLeft: 10},
 });

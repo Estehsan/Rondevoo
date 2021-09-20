@@ -112,7 +112,7 @@ function InterestScreen({navigation}) {
 const Search = ({navigation}) => {
   return (
     <SafeAreaView style={styles.background}>
-      <SearchBar />
+      {/* <SearchBar /> */}
       <Tab.Navigator>
         <Tab.Screen name="Categories" component={Category} />
         <Tab.Screen name="Interest" component={InterestScreen} />

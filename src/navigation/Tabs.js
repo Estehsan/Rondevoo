@@ -22,6 +22,14 @@ import DrawerContent from './../component/basic/DrawerContent';
 
 import SearchListInfo from '../screens/Main/SearchExtra/SearchListInfo';
 
+import MyCalls from '../screens/Main/DrawerScreens/MyCalls';
+import NewBiddingCall from '../screens/Main/DrawerScreens/NewBiddingCall';
+import NewBookingCall from '../screens/Main/DrawerScreens/NewBookingCall';
+import Request from '../screens/Main/DrawerScreens/Request';
+import Setting from '../screens/Main/DrawerScreens/Setting';
+import Support from '../screens/Main/DrawerScreens/Support';
+import UpcomingCalls from '../screens/Main/DrawerScreens/UpcomingCalls';
+
 const Stack = createBottomTabNavigator();
 const All = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -34,7 +42,7 @@ const Tabs = () => {
       <All.Screen name="Login" component={Login} />
       <All.Screen name="Register" component={Register} />
 
-      <All.Screen name="Home" component={DrawerNavigator} />
+      <All.Screen name="Home" component={BottomTabNavigator} />
       <All.Screen name="Message" component={BottomTabNavigator} />
       <All.Screen name="Call" component={BottomTabNavigator} />
       <All.Screen name="Activity" component={BottomTabNavigator} />
@@ -50,6 +58,53 @@ const Tabs = () => {
     </All.Navigator>
   );
 };
+
+function DrawerRoute() {
+  return (
+    <Drawer.Navigator initialRouteName="Home" drawerContent={DrawerContent}>
+      <Drawer.Screen
+        options={{headerShown: false}}
+        name="Home"
+        component={Home}
+      />
+      <Drawer.Screen
+        options={{headerShown: true}}
+        name="MyCalls"
+        component={MyCalls}
+      />
+      <Drawer.Screen
+        options={{headerShown: true}}
+        name="NewBiddingCall"
+        component={NewBiddingCall}
+      />
+      <Drawer.Screen
+        options={{headerShown: true}}
+        name="NewBookingCall"
+        component={NewBookingCall}
+      />
+      <Drawer.Screen
+        options={{headerShown: true}}
+        name="Request"
+        component={Request}
+      />
+      <Drawer.Screen
+        options={{headerShown: true}}
+        name="Setting"
+        component={Setting}
+      />
+      <Drawer.Screen
+        options={{headerShown: true}}
+        name="Support"
+        component={Support}
+      />
+      <Drawer.Screen
+        options={{headerShown: true}}
+        name="UpcomingCalls"
+        component={UpcomingCalls}
+      />
+    </Drawer.Navigator>
+  );
+}
 const screenOptionStyle = {
   headerShown: false,
 };
@@ -65,7 +120,7 @@ function BottomTabNavigator() {
       }}>
       <Stack.Screen
         name="Home"
-        component={Home}
+        component={DrawerRoute}
         options={{
           headerShown: false,
           tabBarIcon: ({color, focused}) => (
