@@ -42,7 +42,7 @@ const Tabs = () => {
       <All.Screen name="Login" component={Login} />
       <All.Screen name="Register" component={Register} />
 
-      <All.Screen name="Home" component={BottomTabNavigator} />
+      <All.Screen name="Home" component={DrawerRoute} />
       <All.Screen name="Message" component={BottomTabNavigator} />
       <All.Screen name="Call" component={BottomTabNavigator} />
       <All.Screen name="Activity" component={BottomTabNavigator} />
@@ -61,12 +61,13 @@ const Tabs = () => {
 
 function DrawerRoute() {
   return (
-    <Drawer.Navigator initialRouteName="Home" drawerContent={DrawerContent}>
+    <Drawer.Navigator drawerContent={DrawerContent}>
       <Drawer.Screen
         options={{headerShown: false}}
         name="Home"
-        component={Home}
+        component={BottomTabNavigator}
       />
+
       <Drawer.Screen
         options={{headerShown: true}}
         name="MyCalls"
@@ -111,7 +112,6 @@ const screenOptionStyle = {
 function BottomTabNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
       screenOptions={screenOptionStyle}
       tabBarOptions={{
         activeTintColor: '#578ddd',
@@ -120,7 +120,7 @@ function BottomTabNavigator() {
       }}>
       <Stack.Screen
         name="Home"
-        component={DrawerRoute}
+        component={Home}
         options={{
           headerShown: false,
           tabBarIcon: ({color, focused}) => (
@@ -137,6 +137,7 @@ function BottomTabNavigator() {
         name="Search"
         component={Search}
         options={{
+          headerShown: true,
           tabBarIcon: ({color, focused}) => (
             <Icon
               style={Platform.OS === 'ios' ? styles.position : styles.position2}
@@ -151,6 +152,7 @@ function BottomTabNavigator() {
         name="Call"
         component={Call}
         options={{
+          headerShown: true,
           tabBarIcon: ({color, focused}) => (
             <Icon
               style={Platform.OS === 'ios' ? styles.position : styles.position2}
@@ -192,16 +194,6 @@ function BottomTabNavigator() {
         }}
       />
     </Stack.Navigator>
-  );
-}
-
-function DrawerNavigator() {
-  return (
-    <Drawer.Navigator
-      screenOptions={{headerShown: false}}
-      drawerContent={DrawerContent}>
-      <Drawer.Screen name="Home" component={BottomTabNavigator} />
-    </Drawer.Navigator>
   );
 }
 

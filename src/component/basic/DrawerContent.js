@@ -34,8 +34,10 @@ export default function DrawerContent({navigation}) {
             <View style={styles.leftKarma}>
               <Icon size={28} name="coins" color="blue" />
               <View style={styles.linners}>
-                <Text>Hailo</Text>
-                <Text>Hailo</Text>
+                <Paragraph style={[styles.paragraph, styles.caption]}>
+                  Starting At
+                </Paragraph>
+                <Caption style={styles.caption}>10$</Caption>
               </View>
             </View>
             <View style={{borderWidth: 0.5, borderColor: 'silver'}} />
@@ -43,8 +45,10 @@ export default function DrawerContent({navigation}) {
               <Icon size={28} name="coins" color="blue" />
 
               <View style={styles.linners}>
-                <Text>Hailo</Text>
-                <Text>Hailo</Text>
+                <Paragraph style={[styles.paragraph, styles.caption]}>
+                  Rating
+                </Paragraph>
+                <Caption style={styles.caption}>****</Caption>
               </View>
             </View>
           </View>
