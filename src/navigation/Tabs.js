@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import Home from '../screens/Main/Home';
 import Message from '../screens/Main/Message';
-import Call from '../screens/Main/Call';
+import Add from '../screens/Main/Add';
 import Search from '../screens/Main/Search';
 import Activity from '../screens/Main/Activity';
 
@@ -29,6 +29,7 @@ import Request from '../screens/Main/DrawerScreens/Request';
 import Setting from '../screens/Main/DrawerScreens/Setting';
 import Support from '../screens/Main/DrawerScreens/Support';
 import UpcomingCalls from '../screens/Main/DrawerScreens/UpcomingCalls';
+import {theme} from '../theme/theme';
 
 const Stack = createBottomTabNavigator();
 const All = createStackNavigator();
@@ -44,7 +45,7 @@ const Tabs = () => {
 
       <All.Screen name="Home" component={DrawerRoute} />
       <All.Screen name="Message" component={BottomTabNavigator} />
-      <All.Screen name="Call" component={BottomTabNavigator} />
+      <All.Screen name="Add" component={BottomTabNavigator} />
       <All.Screen name="Activity" component={BottomTabNavigator} />
       <All.Screen name="Search" component={BottomTabNavigator} />
 
@@ -59,9 +60,25 @@ const Tabs = () => {
   );
 };
 
-function DrawerRoute() {
+function DrawerRoute({navigation}) {
   return (
-    <Drawer.Navigator drawerContent={DrawerContent}>
+    <Drawer.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: theme.colors.bg,
+        },
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+        headerLeft: () => (
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={{paddingLeft: 25}}>
+            <Icon name="md-arrow-back" size={30} />
+          </TouchableOpacity>
+        ),
+      }}
+      drawerContent={DrawerContent}>
       <Drawer.Screen
         options={{headerShown: false}}
         name="Home"
@@ -69,37 +86,37 @@ function DrawerRoute() {
       />
 
       <Drawer.Screen
-        options={{headerShown: true}}
+        options={{headerShown: true, title: 'My Calls'}}
         name="MyCalls"
         component={MyCalls}
       />
       <Drawer.Screen
-        options={{headerShown: true}}
+        options={{headerShown: true, title: 'New Bidding Call'}}
         name="NewBiddingCall"
         component={NewBiddingCall}
       />
       <Drawer.Screen
-        options={{headerShown: true}}
+        options={{headerShown: true, title: 'New Booking Call'}}
         name="NewBookingCall"
         component={NewBookingCall}
       />
       <Drawer.Screen
-        options={{headerShown: true}}
+        options={{headerShown: true, title: 'Request'}}
         name="Request"
         component={Request}
       />
       <Drawer.Screen
-        options={{headerShown: true}}
+        options={{headerShown: true, title: 'Setting'}}
         name="Setting"
         component={Setting}
       />
       <Drawer.Screen
-        options={{headerShown: true}}
+        options={{headerShown: true, title: 'Support'}}
         name="Support"
         component={Support}
       />
       <Drawer.Screen
-        options={{headerShown: true}}
+        options={{headerShown: true, title: 'Upcoming Calls'}}
         name="UpcomingCalls"
         component={UpcomingCalls}
       />
@@ -149,16 +166,16 @@ function BottomTabNavigator() {
         }}
       />
       <Stack.Screen
-        name="Call"
-        component={Call}
+        name="Add"
+        component={Add}
         options={{
           headerShown: true,
           tabBarIcon: ({color, focused}) => (
             <Icon
               style={Platform.OS === 'ios' ? styles.position : styles.position2}
-              name={focused ? 'call' : 'call-outline'}
-              size={35}
-              color={color}
+              name="add-circle"
+              size={52}
+              color={focused ? color : '#d63031'}
             />
           ),
         }}

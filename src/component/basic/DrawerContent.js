@@ -13,6 +13,7 @@ import {
   Badge,
 } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {theme} from '../../theme/theme';
 
 // import {SettingsIcon} from './../../assets/icons';
 
@@ -32,7 +33,11 @@ export default function DrawerContent({navigation}) {
           <Caption style={styles.caption}>@Estehsan</Caption>
           <View style={styles.KarmaBar}>
             <View style={styles.leftKarma}>
-              <Icon size={28} name="coins" color="blue" />
+              <Icon
+                size={28}
+                name="record-vinyl"
+                color={theme.colors.primary}
+              />
               <View style={styles.linners}>
                 <Paragraph style={[styles.paragraph, styles.caption]}>
                   Starting At
@@ -42,13 +47,13 @@ export default function DrawerContent({navigation}) {
             </View>
             <View style={{borderWidth: 0.5, borderColor: 'silver'}} />
             <View style={styles.RightReddit}>
-              <Icon size={28} name="coins" color="blue" />
+              <Icon size={28} name="coins" color={theme.colors.primary} />
 
               <View style={styles.linners}>
                 <Paragraph style={[styles.paragraph, styles.caption]}>
                   Rating
                 </Paragraph>
-                <Caption style={styles.caption}>****</Caption>
+                <Caption style={styles.caption}>⭐⭐⭐⭐</Caption>
               </View>
             </View>
           </View>
