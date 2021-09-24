@@ -60,12 +60,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 30,
     alignItems: 'center',
-    height: '10%',
     display: 'flex',
-    ...theme.colors.customShad,
   },
   left: {justifyContent: 'center'},
-  center: {width: '91%', marginHorizontal: 40},
+  center: {
+    width: '91%',
+    marginHorizontal: 40,
+
+    ...theme.colors.customShad,
+  },
   right: {justifyContent: 'center'},
   // searchBar: {height: 30},
 });

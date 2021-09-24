@@ -139,7 +139,7 @@ function BottomTabNavigator() {
         name="Home"
         component={Home}
         options={{
-          headerShown: false,
+          headerShown: true,
           tabBarIcon: ({color, focused}) => (
             <Icon
               style={Platform.OS == 'ios' ? styles.position : styles.position2}

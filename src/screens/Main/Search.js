@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -110,6 +110,19 @@ function InterestScreen({navigation}) {
 }
 
 const Search = ({navigation}) => {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: '#fff',
+        shadowColor: 'transparent',
+        shadowRadius: 0,
+        shadowOffset: {
+          height: 0,
+        },
+      },
+      headerTitle: () => <SearchBar navigation={navigation} />,
+    });
+  }, [navigation]);
   return (
     <SafeAreaView style={styles.background}>
       {/* <SearchBar /> */}

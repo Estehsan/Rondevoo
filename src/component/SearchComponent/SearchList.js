@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import H3 from './../basic/H3';
 import Subtitle from './../basic/SubTitle';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {theme} from '../../theme/theme';
 
 const SearchList = ({item, navigation}) => {
   // const navigation = useNavigation();
@@ -10,7 +11,7 @@ const SearchList = ({item, navigation}) => {
   return (
     <View style={styles.main}>
       <View style={styles.Icon}>
-        <Icon name={item.iconName} size={38} />
+        <Icon name={item.iconName} size={38} color={theme.colors.primary} />
       </View>
       <View style={styles.Content}>
         <Subtitle>{item.Title}</Subtitle>

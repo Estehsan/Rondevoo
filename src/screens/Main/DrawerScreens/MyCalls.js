@@ -17,11 +17,10 @@ import H3 from '../../../component/basic/H3';
 
 import WP from './../../../component/basic/WP';
 
-import {NavigationContainer} from '@react-navigation/native';
-
 import Icon from 'react-native-vector-icons/Ionicons';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import H2W from '../../../component/basic/H2W';
+import {NavigationContainer} from '@react-navigation/native';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 const Tab = createMaterialTopTabNavigator();
 const data1 = [
