@@ -10,6 +10,8 @@ import P from './../../component/basic/P';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {theme} from './../../theme/theme';
 import {Avatar, Paragraph} from 'react-native-paper';
+import SearchBar from './../../component/HomeComponent/SearchBar';
+
 import H1 from '../../component/basic/H1';
 
 const data1 = [
@@ -55,15 +57,14 @@ const Activity = ({route, navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: theme.colors.bg,
+        backgroundColor: '#fff',
         shadowColor: 'transparent',
         shadowRadius: 0,
         shadowOffset: {
           height: 0,
         },
       },
-
-      headerTitle: () => <H2>Activity</H2>,
+      headerTitle: () => <SearchBar navigation={navigation} />,
     });
   }, [navigation]);
   return (

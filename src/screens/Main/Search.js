@@ -7,11 +7,11 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+
 import SearchBar from '../../component/HomeComponent/SearchBar';
 import SearchList from '../../component/SearchComponent/SearchList';
-
+import {NavigationContainer} from '@react-navigation/native';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 const Tab = createMaterialTopTabNavigator();
 
 const data1 = [

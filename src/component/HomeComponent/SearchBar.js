@@ -1,9 +1,10 @@
 import React from 'react';
-import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 import {Avatar, Searchbar} from 'react-native-paper';
 import {theme} from './../../theme/theme';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import TI from '../basic/TI';
+
 import {TouchableOpacity} from 'react-native-gesture-handler';
 // import {useNavigation} from '@react-navigation/native';
 
@@ -20,7 +21,7 @@ const SearchBar = ({navigation, children}) => {
       <View style={styles.left}>
         <TouchableOpacity onPress={navigation.openDrawer}>
           <Avatar.Image
-            size={30}
+            size={35}
             source={{
               uri: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
             }}
@@ -41,8 +42,11 @@ const SearchBar = ({navigation, children}) => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <TouchableOpacity onPress={navigation.openDrawer}>
-              <Icon size={22} name="coins" color="black" />
+            <TouchableOpacity onPress={() => navigation.navigate('Coins')}>
+              <Image
+                source={require('../../assets/img/coin.png')}
+                style={{height: 35, width: 35}}
+              />
             </TouchableOpacity>
           </View>
         </View>

@@ -8,6 +8,7 @@ import {theme} from '../../theme/theme';
 import H2 from './../../component/basic/H2';
 import ConversationUserList from './../../component/MessageComponents/ConversationUserList';
 import {FlatList} from 'react-native-gesture-handler';
+import SearchBar from '../../component/HomeComponent/SearchBar';
 
 const data1 = [
   {
@@ -50,28 +51,14 @@ const Message = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: theme.colors.bg,
+        backgroundColor: '#fff',
         shadowColor: 'transparent',
         shadowRadius: 0,
         shadowOffset: {
           height: 0,
         },
       },
-      headerLeft: () => (
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={{paddingLeft: 25}}>
-          <Icon name="md-arrow-back" size={30} />
-        </TouchableOpacity>
-      ),
-      headerTitle: () => <H2>Inbox</H2>,
-      headerRight: () => (
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={{paddingRight: 25}}>
-          <Icon2 name="archive" size={30} />
-        </TouchableOpacity>
-      ),
+      headerTitle: () => <SearchBar navigation={navigation} />,
     });
   }, [navigation]);
   return (

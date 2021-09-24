@@ -8,11 +8,18 @@ import {
   Paragraph,
   Drawer,
   Text,
+  Image,
   TouchableRipple,
   Switch,
   Badge,
+  Subheading,
 } from 'react-native-paper';
+
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 import {theme} from '../../theme/theme';
 
 // import {SettingsIcon} from './../../assets/icons';
@@ -33,11 +40,11 @@ export default function DrawerContent({navigation}) {
           <Caption style={styles.caption}>@Estehsan</Caption>
           <View style={styles.KarmaBar}>
             <View style={styles.leftKarma}>
-              <Icon
+              <Avatar.Image
                 size={28}
-                name="record-vinyl"
-                color={theme.colors.primary}
+                source={require('./../../assets/img/coin.png')}
               />
+
               <View style={styles.linners}>
                 <Paragraph style={[styles.paragraph, styles.caption]}>
                   Starting At
@@ -47,7 +54,7 @@ export default function DrawerContent({navigation}) {
             </View>
             <View style={{borderWidth: 0.5, borderColor: 'silver'}} />
             <View style={styles.RightReddit}>
-              <Icon size={28} name="coins" color={theme.colors.primary} />
+              <Icon size={28} name="star" color="#f1c40f" />
 
               <View style={styles.linners}>
                 <Paragraph style={[styles.paragraph, styles.caption]}>
@@ -76,103 +83,103 @@ export default function DrawerContent({navigation}) {
         <Drawer.Section>
           <TouchableRipple onPress={() => navigation.navigate('MyCalls')}>
             <View style={styles.preference}>
-              <Icon
-                size={22}
-                name="coins"
+              <Feather
+                size={30}
+                name="video"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Text>My Calls</Text>
+              <Subheading>My Calls</Subheading>
             </View>
           </TouchableRipple>
           <TouchableRipple onPress={() => navigation.navigate('UpcomingCalls')}>
             <View style={styles.preference}>
-              <Icon
-                size={22}
-                name="coins"
+              <Feather
+                size={30}
+                name="calendar"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Text>Upcoming Calls</Text>
+              <Subheading>Upcoming Calls</Subheading>
             </View>
           </TouchableRipple>
           <TouchableRipple onPress={() => navigation.navigate('Request')}>
             <View style={styles.preference}>
-              <Icon
-                size={22}
-                name="coins"
+              <Feather
+                size={30}
+                name="inbox"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Text>Request</Text>
+              <Subheading>Request</Subheading>
             </View>
           </TouchableRipple>
           <TouchableRipple
             onPress={() => navigation.navigate('NewBookingCall')}>
             <View style={styles.preference}>
-              <Icon
-                size={22}
-                name="coins"
+              <FontAwesome
+                size={30}
+                name="calendar-plus-o"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Text>New Booking Call</Text>
+              <Subheading>New Booking Call</Subheading>
             </View>
           </TouchableRipple>
           <TouchableRipple
             onPress={() => navigation.navigate('NewBiddingCall')}>
             <View style={styles.preference}>
-              <Icon
-                size={22}
-                name="coins"
+              <Ionicons
+                size={30}
+                name="hammer-outline"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Text>New Bidding Call</Text>
+              <Subheading>New Bidding Call</Subheading>
             </View>
           </TouchableRipple>
           <TouchableRipple onPress={() => navigation.navigate('Profile')}>
             <View style={styles.preference}>
-              <Icon
-                size={22}
-                name="coins"
+              <Feather
+                size={30}
+                name="user"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Text>Profile</Text>
+              <Subheading>Profile</Subheading>
             </View>
           </TouchableRipple>
           <TouchableRipple onPress={() => navigation.navigate('Setting')}>
             <View style={styles.preference}>
-              <Icon
-                size={22}
-                name="coins"
+              <Feather
+                size={30}
+                name="settings"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Text>Setting</Text>
+              <Subheading>Setting</Subheading>
             </View>
           </TouchableRipple>
-          <TouchableRipple onPress={() => navigation.navigate('Support')}>
+          {/* <TouchableRipple onPress={() => navigation.navigate('Support')}>
             <View style={styles.preference}>
               <Icon
-                size={22}
+                size={30}
                 name="coins"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Text>Support</Text>
+              <Subheading>Support</Subheading>
             </View>
-          </TouchableRipple>
-          <TouchableRipple onPress={() => {}}>
+          </TouchableRipple> */}
+          <TouchableRipple onPress={() => navigation.navigate('Register')}>
             <View style={styles.preference}>
-              <Icon
-                size={22}
-                name="coins"
+              <Feather
+                size={30}
+                name="log-out"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Text>Log Out</Text>
+              <Subheading>Log Out</Subheading>
             </View>
           </TouchableRipple>
         </Drawer.Section>

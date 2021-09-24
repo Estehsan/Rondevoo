@@ -29,6 +29,8 @@ import Request from '../screens/Main/DrawerScreens/Request';
 import Setting from '../screens/Main/DrawerScreens/Setting';
 import Support from '../screens/Main/DrawerScreens/Support';
 import UpcomingCalls from '../screens/Main/DrawerScreens/UpcomingCalls';
+import Coins from '../screens/Main/DrawerScreens/Coins';
+
 import {theme} from '../theme/theme';
 
 const Stack = createBottomTabNavigator();
@@ -48,6 +50,9 @@ const Tabs = () => {
       <All.Screen name="Add" component={BottomTabNavigator} />
       <All.Screen name="Activity" component={BottomTabNavigator} />
       <All.Screen name="Search" component={BottomTabNavigator} />
+      <All.Screen 
+        options={{headerShown: true}}
+      name="Coins" component={Coins} />
 
       <All.Screen name="Profile" component={Profile} />
 

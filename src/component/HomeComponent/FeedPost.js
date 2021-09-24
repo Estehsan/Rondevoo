@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useState} from 'react';
 import {Dimensions, StyleSheet, Text, View, Image} from 'react-native';
 import {Avatar} from 'react-native-paper';
 import H2 from './../../component/basic/H2';
@@ -10,7 +10,10 @@ import Icon3 from 'react-native-vector-icons/Octicons';
 import Icon4 from 'react-native-vector-icons/MaterialIcons';
 
 import {theme} from './../../theme/theme';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 const FeedPost = ({item}) => {
+  const [like, setLike] = useState(false);
+
   return (
     <View style={styles.container}>
       <View style={styles.PostImg}>
@@ -39,10 +42,17 @@ const FeedPost = ({item}) => {
               </View>
               <View style={styles.CommentLike}>
                 <View style={styles.three}>
-                  <View style={styles.row}>
-                    <Icon2 size={30} name="hearto" style={styles.p10} />
+                  <TouchableOpacity
+                    style={styles.row}
+                    onPress={() => setLike(!like)}>
+                    <Icon2
+                      size={30}
+                      name={like ? 'hearto' : 'heart'}
+                      style={styles.p10}
+                      color={like ? 'black' : 'red'}
+                    />
                     <P>10K</P>
-                  </View>
+                  </TouchableOpacity>
                   <View style={styles.row}>
                     <Icon3 size={30} name="comment" style={styles.p10} />
                     <P>10K</P>
