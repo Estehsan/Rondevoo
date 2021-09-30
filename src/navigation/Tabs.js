@@ -39,7 +39,9 @@ const Drawer = createDrawerNavigator();
 
 const Tabs = () => {
   return (
-    <All.Navigator screenOptions={{headerShown: false}} initialRouteName="Home">
+    <All.Navigator
+      screenOptions={{headerShown: false}}
+      initialRouteName="Profile">
       <All.Screen name="GetStarted" component={GetStarted} />
 
       <All.Screen name="Login" component={Login} />
@@ -50,9 +52,11 @@ const Tabs = () => {
       <All.Screen name="Add" component={BottomTabNavigator} />
       <All.Screen name="Activity" component={BottomTabNavigator} />
       <All.Screen name="Search" component={BottomTabNavigator} />
-      <All.Screen 
+      <All.Screen
         options={{headerShown: true}}
-      name="Coins" component={Coins} />
+        name="Coins"
+        component={Coins}
+      />
 
       <All.Screen name="Profile" component={Profile} />
 
