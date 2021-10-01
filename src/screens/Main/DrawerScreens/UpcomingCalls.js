@@ -5,13 +5,24 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import {NavigationContainer} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import H2 from './../../../component/basic/H2';
+import BottomBtnCall from '../../../component/basic/BottomBtnCall';
+import {Title} from 'react-native-paper';
+import H2W from '../../../component/basic/H2W';
+import UpcomingSvg from '../../../component/svg/UpcomingSvg';
+import FindSvg from '../../../component/svg/FindSvg';
 
 const Tab = createMaterialTopTabNavigator();
 
 const Calls = ({navigation}) => {
   return (
     <View>
-      <Text>Yes</Text>
+      <View style={styles.cant}>
+        <UpcomingSvg />
+        <Title>We Can't Find Any Call</Title>
+        <TouchableOpacity style={styles.btn}>
+          <H2W>No Upcoming Calls</H2W>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -19,7 +30,13 @@ const Calls = ({navigation}) => {
 const Upcoming = ({navigation}) => {
   return (
     <View>
-      <Text>yo</Text>
+      <View style={styles.cant}>
+        <FindSvg />
+        <Title>We Can't Find Any Call</Title>
+        <TouchableOpacity style={styles.btn}>
+          <H2W>No Upcoming Calls</H2W>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -41,7 +58,7 @@ const UpcomingCalls = ({navigation}) => {
           <Icon name="md-arrow-back" size={30} />
         </TouchableOpacity>
       ),
-      headerTitle: () => <H2>My Calls</H2>,
+      headerTitle: () => <H2>Upcoming Calls</H2>,
       headerRight: () => <View />,
     });
   }, [navigation]);
@@ -54,4 +71,19 @@ const UpcomingCalls = ({navigation}) => {
 };
 export default UpcomingCalls;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  cant: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 30,
+  },
+  btn: {
+    height: 50,
+    width: '70%',
+    marginVertical: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: theme.colors.main,
+    borderRadius: 100,
+  },
+});

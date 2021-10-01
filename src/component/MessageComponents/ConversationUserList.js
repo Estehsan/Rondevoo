@@ -1,12 +1,21 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Avatar} from 'react-native-paper';
 import H2 from './../../component/basic/H2';
 import H3 from './../../component/basic/H3';
+import Span from './../../component/basic/Span';
 
-const ConversationUserList = ({item}) => {
+const ConversationUserList = ({item, navigation}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate('Discussion', {
+          id: item.id,
+          userName: item.userName,
+          img: item.img,
+        })
+      }
+      style={styles.container}>
       <View style={styles.logo}>
         {item.img ? (
           <Avatar.Image
@@ -26,12 +35,12 @@ const ConversationUserList = ({item}) => {
       </View>
       <View style={styles.Message}>
         <H2>{item.userName}</H2>
-        <Text>{item.message}</Text>
+        <Span>{item.message}</Span>
       </View>
       <View style={styles.Icon}>
         <Text>{item.time}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

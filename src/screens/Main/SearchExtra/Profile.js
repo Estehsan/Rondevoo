@@ -7,6 +7,7 @@ import H1 from '../../../component/basic/H1';
 import H3 from '../../../component/basic/H3';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 import WP from '../../../component/basic/WP';
 
@@ -62,20 +63,21 @@ const Profile = ({navigation}) => {
             <WP>John Cena</WP>
           </View>
           <View style={styles.RightTop}>
-            <Icon
-              name="question"
+            <Entypo
+              name="phone"
               size={30}
               color="white"
               style={{paddingHorizontal: 5}}
             />
-            <Icon
-              name="question"
+
+            <Entypo
+              name="message"
               size={30}
               color="white"
               style={{paddingHorizontal: 5}}
             />
-            <Icon
-              name="question"
+            <Entypo
+              name="dots-three-horizontal"
               size={30}
               color="white"
               style={{paddingHorizontal: 5}}

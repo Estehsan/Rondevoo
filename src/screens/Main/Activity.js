@@ -97,9 +97,9 @@ const Activity = ({route, navigation}) => {
                   )}
                 </View>
                 <View style={styles.row}>
-                  <H3>
+                  <H2>
                     {item.Title} <Span>{item.sub}</Span>
-                  </H3>
+                  </H2>
                 </View>
               </View>
               <View style={styles.Rightbar}>

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   Title: {
     fontFamily: 'Montserrat-Regular',
     fontSize: 15,
-    lineHeight: 30,
+    // lineHeight: 30,
     paddingVertical: 3,
     color: theme.colors.silver,
 

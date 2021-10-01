@@ -60,7 +60,7 @@ export default function DrawerContent({navigation}) {
                 <Paragraph style={[styles.paragraph, styles.caption]}>
                   Rating
                 </Paragraph>
-                <Caption style={styles.caption}>⭐⭐⭐⭐</Caption>
+                <Caption style={styles.caption}>â­â­â­â­</Caption>
               </View>
             </View>
           </View>

@@ -12,7 +12,6 @@ import Message from '../screens/Main/Message';
 import Add from '../screens/Main/Add';
 import Search from '../screens/Main/Search';
 import Activity from '../screens/Main/Activity';
-
 import Profile from './../screens/Main/SearchExtra/Profile';
 
 import Login from '../screens/auth/Login';
@@ -21,6 +20,7 @@ import GetStarted from '../screens/auth/GetStarted';
 import DrawerContent from './../component/basic/DrawerContent';
 
 import SearchListInfo from '../screens/Main/SearchExtra/SearchListInfo';
+import Discussion from './../screens/Main/MessageScreens/Discussion';
 
 import MyCalls from '../screens/Main/DrawerScreens/MyCalls';
 import NewBiddingCall from '../screens/Main/DrawerScreens/NewBiddingCall';
@@ -39,9 +39,7 @@ const Drawer = createDrawerNavigator();
 
 const Tabs = () => {
   return (
-    <All.Navigator
-      screenOptions={{headerShown: false}}
-      initialRouteName="Profile">
+    <All.Navigator screenOptions={{headerShown: false}} initialRouteName="Home">
       <All.Screen name="GetStarted" component={GetStarted} />
 
       <All.Screen name="Login" component={Login} />
@@ -59,6 +57,11 @@ const Tabs = () => {
       />
 
       <All.Screen name="Profile" component={Profile} />
+      <All.Screen
+        name="Discussion"
+        options={{headerShown: true}}
+        component={Discussion}
+      />
 
       <All.Screen
         name="SearchListInfo"

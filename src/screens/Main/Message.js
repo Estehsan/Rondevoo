@@ -58,6 +58,7 @@ const Message = ({navigation}) => {
           height: 0,
         },
       },
+
       headerTitle: () => <SearchBar navigation={navigation} />,
     });
   }, [navigation]);
@@ -65,7 +66,9 @@ const Message = ({navigation}) => {
     <View style={styles.Main}>
       <FlatList
         data={data1}
-        renderItem={({item}) => <ConversationUserList item={item} />}
+        renderItem={({item}) => (
+          <ConversationUserList navigation={navigation} item={item} />
+        )}
       />
     </View>
   );
