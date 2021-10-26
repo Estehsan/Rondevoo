@@ -5,6 +5,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {theme} from './src/theme/theme';
 import {Button, Provider} from 'react-native-paper';
 import Tabs from './src/navigation/Tabs';
+import 'react-native-gesture-handler';
 
 const App = () => {
   return (

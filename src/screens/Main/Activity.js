@@ -1,5 +1,12 @@
 import React, {useLayoutEffect} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, FlatList} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  FlatList,
+  Image,
+} from 'react-native';
 import Subtitle from './../../component/basic/SubTitle';
 import Background from './../../component/basic/Background';
 import H3 from './../../component/basic/H3';
@@ -13,6 +20,7 @@ import {Avatar, Paragraph} from 'react-native-paper';
 import SearchBar from './../../component/HomeComponent/SearchBar';
 
 import H1 from '../../component/basic/H1';
+import ListNotification from '../../component/ActivityComponent/ListNotification';
 
 const data1 = [
   {
@@ -75,38 +83,8 @@ const Activity = ({route, navigation}) => {
         </View>
         <FlatList
           data={data1}
-          ItemSeparatorComponent={() => <View style={styles.seperator} />}
-          renderItem={({item}) => (
-            <View style={styles.List}>
-              <View style={styles.LeftBar}>
-                <View style={styles.ph}>
-                  {item.img ? (
-                    <Avatar.Image
-                      size={30}
-                      source={{
-                        url: item.img,
-                      }}
-                    />
-                  ) : (
-                    <Avatar.Image
-                      size={30}
-                      source={{
-                        url: 'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg',
-                      }}
-                    />
-                  )}
-                </View>
-                <View style={styles.row}>
-                  <H2>
-                    {item.Title} <Span>{item.sub}</Span>
-                  </H2>
-                </View>
-              </View>
-              <View style={styles.Rightbar}>
-                <Paragraph>{item.time}</Paragraph>
-              </View>
-            </View>
-          )}
+          // ItemSeparatorComponent={() => <View style={styles.seperator} />}
+          renderItem={({item}) => <ListNotification item={item} />}
         />
       </View>
     </View>
@@ -116,27 +94,12 @@ const Activity = ({route, navigation}) => {
 export default Activity;
 
 const styles = StyleSheet.create({
-  container: {},
-  List: {
-    paddingHorizontal: 20,
-    flexDirection: 'row',
-    display: 'flex',
-    paddingVertical: 15,
-    alignItems: 'center',
-  },
-  LeftBar: {flex: 9, flexDirection: 'row', display: 'flex'},
-  Rightbar: {flex: 1, justifyContent: 'flex-end'},
-  seperator: {
-    height: 0.5,
-    width: '100%',
-    backgroundColor: '#C8C8C8',
-  },
-  pd: {padding: 20},
-  row: {
-    flexDirection: 'row',
-    display: 'flex',
-    paddingHorizontal: 10,
-    alignItems: 'center',
-  },
+  // seperator: {
+  //   height: 0.5,
+  //   width: '100%',
+  //   backgroundColor: '#C8C8C8',
+  // },
+  pd: {padding: 20, justifyContent: 'center', alignItems: 'center'},
+
   main: {flex: 1, backgroundColor: 'white'},
 });

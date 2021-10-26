@@ -9,6 +9,10 @@ import H2 from './../../component/basic/H2';
 import ConversationUserList from './../../component/MessageComponents/ConversationUserList';
 import {FlatList} from 'react-native-gesture-handler';
 import SearchBar from '../../component/HomeComponent/SearchBar';
+import {Avatar} from 'react-native-paper';
+import LogoBar from '../../component/HomeComponent/LogoBar';
+import {H1} from '../../component/basic';
+import FieldSearch from '../../component/HomeComponent/FieldSearch';
 
 const data1 = [
   {
@@ -52,18 +56,34 @@ const Message = ({navigation}) => {
     navigation.setOptions({
       headerStyle: {
         backgroundColor: '#fff',
+        height: 100,
         shadowColor: 'transparent',
         shadowRadius: 0,
         shadowOffset: {
           height: 0,
         },
       },
-
-      headerTitle: () => <SearchBar navigation={navigation} />,
+      headerLeft: () => (
+        <TouchableOpacity
+          onPress={navigation.openDrawer}
+          style={{paddingHorizontal: 10}}>
+          <Avatar.Image
+            size={35}
+            source={{
+              uri: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+            }}
+          />
+        </TouchableOpacity>
+      ),
+      headerTitle: () => <LogoBar />,
     });
   }, [navigation]);
   return (
     <View style={styles.Main}>
+      <View style={styles.centerSearch}>
+        <H1>INBOX</H1>
+        <FieldSearch />
+      </View>
       <FlatList
         data={data1}
         renderItem={({item}) => (
@@ -80,5 +100,9 @@ const styles = StyleSheet.create({
   Main: {
     backgroundColor: 'white',
     flex: 1,
+  },
+  centerSearch: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

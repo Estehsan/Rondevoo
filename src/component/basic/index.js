@@ -14,8 +14,15 @@ import Wbg from './Wbg';
 import TextField from './TextField';
 import TI from './TI';
 import Bg from './Bg';
+import Btn from './Btn';
+
+import Heading from './Heading';
+import HeadingW from './HeadingW';
 
 export {
+  Btn,
+  HeadingW,
+  Heading,
   H1,
   H2,
   H3,

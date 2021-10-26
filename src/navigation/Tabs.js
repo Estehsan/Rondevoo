@@ -22,14 +22,17 @@ import DrawerContent from './../component/basic/DrawerContent';
 import SearchListInfo from '../screens/Main/SearchExtra/SearchListInfo';
 import Discussion from './../screens/Main/MessageScreens/Discussion';
 
-import MyCalls from '../screens/Main/DrawerScreens/MyCalls';
-import NewBiddingCall from '../screens/Main/DrawerScreens/NewBiddingCall';
-import NewBookingCall from '../screens/Main/DrawerScreens/NewBookingCall';
-import Request from '../screens/Main/DrawerScreens/Request';
-import Setting from '../screens/Main/DrawerScreens/Setting';
-import Support from '../screens/Main/DrawerScreens/Support';
-import UpcomingCalls from '../screens/Main/DrawerScreens/UpcomingCalls';
-import Coins from '../screens/Main/DrawerScreens/Coins';
+import {
+  MyCalls,
+  NewBiddingCall,
+  NewBookingCall,
+  Request,
+  Setting,
+  Support,
+  UpcomingCalls,
+  Coins,
+  MyProfile,
+} from '../screens/Main/DrawerScreens';
 
 import {theme} from '../theme/theme';
 
@@ -39,7 +42,7 @@ const Drawer = createDrawerNavigator();
 
 const Tabs = () => {
   return (
-    <All.Navigator screenOptions={{headerShown: false}} initialRouteName="Add">
+    <All.Navigator screenOptions={{headerShown: false}} initialRouteName="Home">
       <All.Screen name="GetStarted" component={GetStarted} />
 
       <All.Screen name="Login" component={Login} />
@@ -75,6 +78,7 @@ const Tabs = () => {
 function DrawerRoute({navigation}) {
   return (
     <Drawer.Navigator
+      drawerContent={DrawerContent}
       screenOptions={{
         headerStyle: {
           backgroundColor: theme.colors.bg,
@@ -89,13 +93,13 @@ function DrawerRoute({navigation}) {
             <Icon name="md-arrow-back" size={30} />
           </TouchableOpacity>
         ),
-      }}
-      drawerContent={DrawerContent}>
+      }}>
       <Drawer.Screen
         options={{headerShown: false}}
         name="Home"
         component={BottomTabNavigator}
       />
+      <Drawer.Screen name="MyProfile" component={MyProfile} />
 
       <Drawer.Screen
         options={{headerShown: true, title: 'My Calls'}}
@@ -141,7 +145,6 @@ const screenOptionStyle = {
 function BottomTabNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName="Add"
       screenOptions={screenOptionStyle}
       tabBarOptions={{
         activeTintColor: theme.colors.primary,

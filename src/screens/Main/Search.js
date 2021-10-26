@@ -78,7 +78,6 @@ function Leaderboard({navigation}) {
   return (
     <View style={styles.subcontainer}>
       <LeaderBoardTop />
-      <View></View>
     </View>
   );
 }

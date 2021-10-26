@@ -30,7 +30,7 @@ const HorizontalListStars = ({item}) => {
         }}
       />
       <View style={styles.over}>
-        <H2>Ys</H2>
+        <H2>{item.name}</H2>
         <H3>Sub Title</H3>
       </View>
     </View>

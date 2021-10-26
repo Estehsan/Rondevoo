@@ -20,8 +20,6 @@ import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import {theme} from '../../theme/theme';
-
 // import {SettingsIcon} from './../../assets/icons';
 
 export default function DrawerContent({navigation}) {
@@ -81,6 +79,17 @@ export default function DrawerContent({navigation}) {
         </View>
 
         <Drawer.Section>
+          <TouchableRipple onPress={() => navigation.navigate('MyProfile')}>
+            <View style={styles.preference}>
+              <Feather
+                size={30}
+                name="user"
+                color="black"
+                style={{paddingHorizontal: 15}}
+              />
+              <Subheading>My Profile</Subheading>
+            </View>
+          </TouchableRipple>
           <TouchableRipple onPress={() => navigation.navigate('MyCalls')}>
             <View style={styles.preference}>
               <Feather

@@ -10,21 +10,22 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {theme} from '../../theme/theme';
-import {Avatar} from 'react-native-paper';
+import {Avatar, Button, TextInput} from 'react-native-paper';
 import LogoBar from '../../component/HomeComponent/LogoBar';
-import {Bg, H1, H1W, H2, H3} from '../../component/basic';
+import {Bg, H1, H1W, H2, H3, HeadingW, Btn, P} from '../../component/basic';
 import HorizontalListStars from '../../component/HomeComponent/HorizontalListStars';
 import {UsersList} from '../../dummyData';
-import Btn from '../../component/basic/Btn';
-
-import Icon from 'react-native-vector-icons/Ionicons';
+import {PurpleBtn} from '../../component/AddComponent';
 
 const Tab = createMaterialTopTabNavigator();
 
 const Calls = ({navigation}) => {
   return (
     <Bg>
+      <P></P>
       <H2>Select the page you would like to add to</H2>
+      <H2></H2>
+
       <FlatList
         data={UsersList.slice(0, 3)}
         numColumns={3}
@@ -32,31 +33,62 @@ const Calls = ({navigation}) => {
       />
       <ScrollView>
         <H2>Select the feature you would like to add to</H2>
-        <Btn>
-          <View style={styles.btnstyle}>
-            <Icon color="white" name="home" size={25} />
-            <H1W>Community</H1W>
-          </View>
-        </Btn>
-        <Btn>
-          <H1W>Calls</H1W>
-        </Btn>
-        <Btn>
-          <H1W>Feed</H1W>
-        </Btn>
-        <Btn>
-          <H1W>Store</H1W>
-        </Btn>
-        <Btn>
-          <H1W>+ Add Another</H1W>
-        </Btn>
+
+        <PurpleBtn
+          iconName="account-group"
+          placeholder={'Community'}
+          onPress={navigation.openDrawer}
+        />
+        <PurpleBtn iconName="phone" placeholder={'Calls'} />
+        <PurpleBtn iconName="camera" placeholder={'Feed'} />
+        <PurpleBtn iconName="store" placeholder={'Store'} />
+        <PurpleBtn iconName="plus" placeholder={'Add Features'} />
       </ScrollView>
     </Bg>
   );
 };
 const Feed = ({navigation}) => {
   const [text, setText] = useState();
-  return <View></View>;
+  const [email, setEmail] = useState();
+
+  return (
+    <View style={styles.subcontainer}>
+      <View style={styles.topContainer}>
+        <HeadingW>Create Booking Call</HeadingW>
+        <Text style={styles.subhead}>
+          Use the following features below to create your call.
+        </Text>
+      </View>
+      <View style={styles.Content}>
+        <TextInput
+          style={styles.inputStyle}
+          label="Call Title"
+          value={text}
+          onChangeText={text => setText(text)}
+        />
+        <TextInput
+          style={styles.inputStyle}
+          label="Tags"
+          value={text}
+          onChangeText={text => setText(text)}
+        />
+        <TextInput
+          style={styles.inputStyle}
+          label="Description"
+          value={text}
+          onChangeText={text => setText(text)}
+        />
+        <TextInput
+          style={styles.inputStyle}
+          label="Banner Image"
+          value={text}
+          onChangeText={text => setText(text)}
+        />
+        <H1>All Fields will be here</H1>
+        <Btn placeholder="Create Booking Call" />
+      </View>
+    </View>
+  );
 };
 
 const Add = ({navigation}) => {
@@ -108,6 +140,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     ...theme.colors.customShad,
   },
+  topContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 30,
+    alignContent: 'center',
+  },
+  subcontainer: {
+    flex: 1,
+    backgroundColor: theme.colors.primary,
+  },
   Group: {paddingVertical: 10, justifyContent: 'center'},
   Top: {justifyContent: 'center', alignItems: 'center'},
   Upload: {
@@ -149,5 +191,25 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
+  },
+  Content: {
+    backgroundColor: 'white',
+    flex: 1,
+    marginHorizontal: 10,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+  },
+  subhead: {
+    marginHorizontal: 10,
+    color: 'white',
+    fontSize: 15,
+    textAlign: 'center',
+    fontFamily: 'Rubik-Bold',
+    flexWrap: 'wrap',
+    opacity: 0.8,
+  },
+  inputStyle: {
+    marginVertical: 10,
+    backgroundColor: theme.colors.bg,
   },
 });

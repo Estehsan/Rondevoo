@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   Title: {
     fontFamily: 'Rubik-Bold',
     fontSize: 18,
-    lineHeight: 15,
+    lineHeight: 16,
     paddingVertical: 3,
 
     flexWrap: 'wrap',

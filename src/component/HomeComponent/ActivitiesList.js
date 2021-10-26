@@ -24,9 +24,9 @@ const ActivitiesList = ({item}) => {
           </View>
           <View style={styles.right}>
             <View>
-              <H2>test</H2>
-              <H3>test</H3>
-              <P>test</P>
+              <H2>{item.name}</H2>
+              <H3>Subtitle</H3>
+              <P>Anything</P>
             </View>
             <TouchableOpacity style={styles.btn}>
               <H3>BUY</H3>
