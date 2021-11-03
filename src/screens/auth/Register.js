@@ -10,7 +10,6 @@ import {
 import {theme} from './../../theme/theme';
 import TInput from './../../component/basic/TInput';
 
-import ImgBackground from '../../component/basic/ImgBackground';
 import H1 from '../../component/basic/H1';
 import H2W from '../../component/basic/H2W';
 

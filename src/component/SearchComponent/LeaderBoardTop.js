@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {theme} from '../../theme/theme';
-import H2W from '../basic/H2W';
-import HeadingW from '../basic/HeadingW';
-import {Avatar, DataTable} from 'react-native-paper';
+import {H2W, H3, HeadingW} from '../basic';
+
+import Entypo from 'react-native-vector-icons/Entypo';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+import {Avatar, DataTable, Surface} from 'react-native-paper';
 
 const optionsPerPage = [2, 3, 4];
 
@@ -18,6 +21,18 @@ const LeaderBoardTop = () => {
     <View style={styles.main}>
       <View style={styles.Top}>
         <HeadingW>Top Growing Pages</HeadingW>
+        <View style={styles.SubFilter}>
+          <H2W>
+            Today
+            <Entypo name="chevron-down" size={20} />
+          </H2W>
+          <View style={styles.surface}>
+            <Ionicons name="filter" size={20} />
+
+            <Text>Filter</Text>
+            <Entypo name="chevron-down" size={20} />
+          </View>
+        </View>
       </View>
       <View style={styles.Content}>
         <DataTable>
@@ -93,8 +108,22 @@ const styles = StyleSheet.create({
   Top: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 30,
+    paddingTop: 15,
     alignContent: 'center',
   },
   Content: {backgroundColor: 'white', flex: 1, margin: 10, borderRadius: 10},
+  SubFilter: {
+    flexDirection: 'row',
+    width: '100%',
+    padding: 20,
+    justifyContent: 'space-between',
+  },
+  surface: {
+    alignItems: 'center',
+    backgroundColor: 'white',
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    paddingVertical: 5,
+    flexDirection: 'row',
+  },
 });

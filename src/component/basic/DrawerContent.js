@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 import {DrawerItem, DrawerContentScrollView} from '@react-navigation/drawer';
 import {
   Avatar,
@@ -8,7 +8,6 @@ import {
   Paragraph,
   Drawer,
   Text,
-  Image,
   TouchableRipple,
   Switch,
   Badge,
@@ -19,8 +18,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
-// import {SettingsIcon} from './../../assets/icons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 export default function DrawerContent({navigation}) {
   return (
@@ -38,9 +36,9 @@ export default function DrawerContent({navigation}) {
           <Caption style={styles.caption}>@Estehsan</Caption>
           <View style={styles.KarmaBar}>
             <View style={styles.leftKarma}>
-              <Avatar.Image
-                size={28}
-                source={require('./../../assets/img/coin.png')}
+              <Image
+                style={{height: 30, width: 30}}
+                source={require('./../../assets/img/iconLogo.jpeg')}
               />
 
               <View style={styles.linners}>
@@ -52,13 +50,13 @@ export default function DrawerContent({navigation}) {
             </View>
             <View style={{borderWidth: 0.5, borderColor: 'silver'}} />
             <View style={styles.RightReddit}>
-              <Icon size={28} name="star" color="#f1c40f" />
+              {/* <Icon size={28} name="star" color="#f1c40f" /> */}
 
               <View style={styles.linners}>
                 <Paragraph style={[styles.paragraph, styles.caption]}>
                   Rating
                 </Paragraph>
-                <Caption style={styles.caption}>â­â­â­â­</Caption>
+                <Caption style={styles.caption}>⭐ ⭐ ⭐ ⭐</Caption>
               </View>
             </View>
           </View>
@@ -79,6 +77,17 @@ export default function DrawerContent({navigation}) {
         </View>
 
         <Drawer.Section>
+          <TouchableRipple onPress={() => navigation.navigate('Home')}>
+            <View style={styles.preference}>
+              <Feather
+                size={30}
+                name="home"
+                color="black"
+                style={{paddingHorizontal: 15}}
+              />
+              <Subheading> Home</Subheading>
+            </View>
+          </TouchableRipple>
           <TouchableRipple onPress={() => navigation.navigate('MyProfile')}>
             <View style={styles.preference}>
               <Feather
@@ -90,29 +99,30 @@ export default function DrawerContent({navigation}) {
               <Subheading>My Profile</Subheading>
             </View>
           </TouchableRipple>
-          <TouchableRipple onPress={() => navigation.navigate('MyCalls')}>
+          <TouchableRipple onPress={() => navigation.navigate('Pages')}>
             <View style={styles.preference}>
-              <Feather
+              <MaterialIcons
                 size={30}
-                name="video"
+                name="find-in-page"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Subheading>My Calls</Subheading>
+              <Subheading>Pages</Subheading>
             </View>
           </TouchableRipple>
-          <TouchableRipple onPress={() => navigation.navigate('UpcomingCalls')}>
+          <TouchableRipple onPress={() => navigation.navigate('CreatePages')}>
             <View style={styles.preference}>
               <Feather
                 size={30}
-                name="calendar"
+                name="file-plus"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Subheading>Upcoming Calls</Subheading>
+              <Subheading>Create Pages </Subheading>
             </View>
           </TouchableRipple>
-          <TouchableRipple onPress={() => navigation.navigate('Request')}>
+          <TouchableRipple
+            onPress={() => navigation.navigate('BankingInformation')}>
             <View style={styles.preference}>
               <Feather
                 size={30}
@@ -120,23 +130,12 @@ export default function DrawerContent({navigation}) {
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Subheading>Request</Subheading>
+              <Subheading>Banking Information</Subheading>
             </View>
           </TouchableRipple>
+
           <TouchableRipple
-            onPress={() => navigation.navigate('NewBookingCall')}>
-            <View style={styles.preference}>
-              <FontAwesome
-                size={30}
-                name="calendar-plus-o"
-                color="black"
-                style={{paddingHorizontal: 15}}
-              />
-              <Subheading>New Booking Call</Subheading>
-            </View>
-          </TouchableRipple>
-          <TouchableRipple
-            onPress={() => navigation.navigate('NewBiddingCall')}>
+            onPress={() => navigation.navigate('TermsOfService')}>
             <View style={styles.preference}>
               <Ionicons
                 size={30}
@@ -144,20 +143,10 @@ export default function DrawerContent({navigation}) {
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Subheading>New Bidding Call</Subheading>
+              <Subheading>Terms Of Service </Subheading>
             </View>
           </TouchableRipple>
-          <TouchableRipple onPress={() => navigation.navigate('Profile')}>
-            <View style={styles.preference}>
-              <Feather
-                size={30}
-                name="user"
-                color="black"
-                style={{paddingHorizontal: 15}}
-              />
-              <Subheading>Profile</Subheading>
-            </View>
-          </TouchableRipple>
+
           <TouchableRipple onPress={() => navigation.navigate('Setting')}>
             <View style={styles.preference}>
               <Feather
@@ -169,7 +158,7 @@ export default function DrawerContent({navigation}) {
               <Subheading>Setting</Subheading>
             </View>
           </TouchableRipple>
-          {/* <TouchableRipple onPress={() => navigation.navigate('Support')}>
+          <TouchableRipple onPress={() => navigation.navigate('Help')}>
             <View style={styles.preference}>
               <Icon
                 size={30}
@@ -177,9 +166,9 @@ export default function DrawerContent({navigation}) {
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Subheading>Support</Subheading>
+              <Subheading>Help Center</Subheading>
             </View>
-          </TouchableRipple> */}
+          </TouchableRipple>
           <TouchableRipple onPress={() => navigation.navigate('Register')}>
             <View style={styles.preference}>
               <Feather

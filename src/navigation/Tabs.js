@@ -1,10 +1,23 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabBar,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Home from '../screens/Main/Home';
@@ -17,27 +30,38 @@ import Profile from './../screens/Main/SearchExtra/Profile';
 import Login from '../screens/auth/Login';
 import Register from '../screens/auth/Register';
 import GetStarted from '../screens/auth/GetStarted';
-import DrawerContent from './../component/basic/DrawerContent';
 
 import SearchListInfo from '../screens/Main/SearchExtra/SearchListInfo';
 import Discussion from './../screens/Main/MessageScreens/Discussion';
 
 import {
-  MyCalls,
-  NewBiddingCall,
-  NewBookingCall,
-  Request,
-  Setting,
-  Support,
-  UpcomingCalls,
+  BankingInformation,
   Coins,
+  CreatePages,
+  Help,
   MyProfile,
+  Pages,
+  Setting,
+  TermsOfService,
 } from '../screens/Main/DrawerScreens';
 
 import {theme} from '../theme/theme';
+import {Calls, Community, Feed, Store} from '../screens/Main/AddScreens';
+import LogoBar from '../component/HomeComponent/LogoBar';
+import AvatarDrawer from '../component/HomeComponent/AvatarDrawer';
+
+import {Avatar} from 'react-native-paper';
+import {H1, DrawerContent, HeadingW, HeaderLogo} from '../component/basic';
+import {
+  CommunityCreatePage,
+  FeedCreatedPage,
+  StoreCreatedPage,
+  Subscription,
+} from '../screens/Main/HomeExtra';
 
 const Stack = createBottomTabNavigator();
 const All = createNativeStackNavigator();
+const AddNavi = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const Tabs = () => {
@@ -53,10 +77,18 @@ const Tabs = () => {
       <All.Screen name="Add" component={BottomTabNavigator} />
       <All.Screen name="Activity" component={BottomTabNavigator} />
       <All.Screen name="Search" component={BottomTabNavigator} />
+
+      <All.Screen name="Coins" component={Coins} />
+
       <All.Screen
+        name="Subscription"
         options={{headerShown: true}}
-        name="Coins"
-        component={Coins}
+        component={Subscription}
+      />
+      <All.Screen
+        name="StoreCreatedPage"
+        options={{headerShown: true}}
+        component={StoreCreatedPage}
       />
 
       <All.Screen name="Profile" component={Profile} />
@@ -71,55 +103,47 @@ const Tabs = () => {
         options={{headerShown: true}}
         component={SearchListInfo}
       />
+      <All.Screen
+        name="FeedCreatedPage"
+        options={{headerShown: true}}
+        component={FeedCreatedPage}
+      />
+      <All.Screen
+        name="CommunityCreatePage"
+        options={{
+          headerShown: true,
+          headerTitle: () => <HeaderLogo />,
+        }}
+        component={CommunityCreatePage}
+      />
+
+      <All.Screen name="Calls" component={AddTable} />
+      <All.Screen name="Community" component={AddTable} />
+      <All.Screen name="Feed" component={AddTable} />
+      <All.Screen name="Store" component={AddTable} />
     </All.Navigator>
   );
 };
 
 function DrawerRoute({navigation}) {
   return (
-    <Drawer.Navigator
-      drawerContent={DrawerContent}
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: theme.colors.bg,
-        },
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-        headerLeft: () => (
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={{paddingLeft: 25}}>
-            <Icon name="md-arrow-back" size={30} />
-          </TouchableOpacity>
-        ),
-      }}>
+    <Drawer.Navigator drawerContent={DrawerContent}>
       <Drawer.Screen
         options={{headerShown: false}}
         name="Home"
         component={BottomTabNavigator}
       />
       <Drawer.Screen name="MyProfile" component={MyProfile} />
-
+      <Drawer.Screen name="Pages" component={Pages} />
       <Drawer.Screen
-        options={{headerShown: true, title: 'My Calls'}}
-        name="MyCalls"
-        component={MyCalls}
+        options={{headerShown: true, title: 'Create Pages'}}
+        name="CreatePages"
+        component={CreatePages}
       />
       <Drawer.Screen
-        options={{headerShown: true, title: 'New Bidding Call'}}
-        name="NewBiddingCall"
-        component={NewBiddingCall}
-      />
-      <Drawer.Screen
-        options={{headerShown: true, title: 'New Booking Call'}}
-        name="NewBookingCall"
-        component={NewBookingCall}
-      />
-      <Drawer.Screen
-        options={{headerShown: true, title: 'Request'}}
-        name="Request"
-        component={Request}
+        options={{headerShown: true, title: 'Banking Information'}}
+        name="BankingInformation"
+        component={BankingInformation}
       />
       <Drawer.Screen
         options={{headerShown: true, title: 'Setting'}}
@@ -127,22 +151,27 @@ function DrawerRoute({navigation}) {
         component={Setting}
       />
       <Drawer.Screen
-        options={{headerShown: true, title: 'Support'}}
-        name="Support"
-        component={Support}
+        options={{headerShown: true, title: 'TermsOfService'}}
+        name="TermsOfService"
+        component={TermsOfService}
       />
       <Drawer.Screen
-        options={{headerShown: true, title: 'Upcoming Calls'}}
-        name="UpcomingCalls"
-        component={UpcomingCalls}
+        options={{headerShown: true, title: 'Help'}}
+        name="Help"
+        component={Help}
       />
+      {/* <Drawer.Screen
+        options={{headerShown: true, title: 'Coins'}}
+        name="Coins"
+        component={Coins}
+      /> */}
     </Drawer.Navigator>
   );
 }
 const screenOptionStyle = {
   headerShown: false,
 };
-function BottomTabNavigator() {
+function BottomTabNavigator({navigation}) {
   return (
     <Stack.Navigator
       screenOptions={screenOptionStyle}
@@ -175,7 +204,7 @@ function BottomTabNavigator() {
             <Icon
               style={Platform.OS === 'ios' ? styles.position : styles.position2}
               name={focused ? 'search' : 'search-outline'}
-              size={35}
+              size={40}
               color={color}
             />
           ),
@@ -186,11 +215,24 @@ function BottomTabNavigator() {
         component={Add}
         options={{
           headerShown: true,
+
+          headerLeft: () => <AvatarDrawer onPress={navigation.openDrawer} />,
+          headerTitle: () => (
+            <View style={{marginTop: -20}}>
+              <Image
+                style={{
+                  width: 200,
+                }}
+                resizeMode="contain"
+                source={require('./../assets/img/purpleLogo.png')}
+              />
+            </View>
+          ),
           tabBarIcon: ({color, focused}) => (
-            <Icon
+            <EvilIcons
               style={Platform.OS === 'ios' ? styles.position : styles.position2}
-              name="add-circle"
-              size={52}
+              name="plus"
+              size={50}
               color={color}
             />
           ),
@@ -205,7 +247,7 @@ function BottomTabNavigator() {
             <Icon
               style={Platform.OS === 'ios' ? styles.position : styles.position2}
               name={focused ? 'notifications' : 'notifications-outline'}
-              size={35}
+              size={38}
               color={color}
             />
           ),
@@ -217,10 +259,10 @@ function BottomTabNavigator() {
         options={{
           headerShown: true,
           tabBarIcon: ({color, focused}) => (
-            <Icon
-              style={Platform.OS == 'ios' ? styles.position : styles.position2}
-              name={focused ? 'chatbubble' : 'chatbubble-outline'}
-              size={35}
+            <EvilIcons
+              style={Platform.OS === 'ios' ? styles.position : styles.position2}
+              name="envelope"
+              size={50}
               color={color}
             />
           ),
@@ -230,6 +272,43 @@ function BottomTabNavigator() {
   );
 }
 
+const AddStyling = {
+  headerStyle: {
+    backgroundColor: theme.colors.primary,
+    elevation: 0, // for Android
+    shadowOffset: {
+      width: 0,
+      height: 0, // for iOS
+    },
+  },
+  headerTintColor: 'white',
+  headerTitleStyle: {
+    fontFamily: 'Rubik-Bold',
+    color: 'white',
+    fontSize: 30,
+    lineHeight: 40,
+  },
+};
+function AddTable({navigation}) {
+  return (
+    <AddNavi.Navigator screenOptions={AddStyling}>
+      <AddNavi.Screen name="Add" component={Add} />
+
+      <AddNavi.Screen
+        name="Calls"
+        options={{headerShown: true}}
+        component={Calls}
+      />
+      <AddNavi.Screen name="Community" component={Community} />
+      <AddNavi.Screen
+        // options={{headerShown: false}}
+        name="Feed"
+        component={Feed}
+      />
+      <AddNavi.Screen name="Store" component={Store} />
+    </AddNavi.Navigator>
+  );
+}
 export default Tabs;
 
 const styles = StyleSheet.create({});

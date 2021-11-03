@@ -47,7 +47,11 @@ const Home = ({navigation}) => {
             <FlatList
               data={UsersList}
               numColumns={3}
-              renderItem={({item}) => <HorizontalListStars item={item} />}
+              // ListFooterComponent={<Text>hello</Text>}
+              ListFooterComponentStyle={{height: 100}}
+              renderItem={({item}) => (
+                <HorizontalListStars item={item} navigation={navigation} />
+              )}
             />
             <H1>Activity</H1>
           </>
@@ -65,7 +69,7 @@ const styles = StyleSheet.create({
   bg: {
     paddingTop: 10,
     paddingHorizontal: 10,
-    backgroundColor: theme.colors.bg,
+    backgroundColor: 'white',
   },
   surface: {padding: 10, elevation: 4},
 });

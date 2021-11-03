@@ -13,26 +13,30 @@ import H2W from '../basic/H2W';
 import WP from '../basic/WP';
 import H3 from '../basic/H3';
 import H1 from '../basic/H1';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const HorizontalListStars = ({item}) => {
+const HorizontalListStars = ({item, navigation}) => {
   return (
     <View style={[styles.ListOfStars, {backgroundColor: 'white'}]}>
-      <Image
-        source={{
-          url: item.imageUri,
-        }}
-        resizeMode="cover"
-        style={{
-          height: '100%',
-          width: '100%',
-          borderRadius: 20,
-          opacity: 0.8,
-        }}
-      />
-      <View style={styles.over}>
-        <H2>{item.name}</H2>
-        <H3>Sub Title</H3>
-      </View>
+      <TouchableOpacity onPress={() => navigation.navigate('Subscription')}>
+        <Image
+          source={{
+            url: item.imageUri,
+          }}
+          resizeMode="cover"
+          style={{
+            height: '100%',
+            width: '100%',
+            borderRadius: 20,
+            opacity: 0.8,
+          }}
+        />
+        <View style={styles.over}>
+          <H2>{item.name}</H2>
+
+          <H3>{item.subTitle}</H3>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };

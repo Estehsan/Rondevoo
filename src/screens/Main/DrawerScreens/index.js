@@ -1,21 +1,19 @@
 import MyProfile from './MyProfile';
-import Coins from './Coins';
-import MyCalls from './MyCalls';
-import NewBiddingCall from './NewBiddingCall';
-import NewBookingCall from './NewBookingCall';
-import Request from './Request';
+import Pages from './Pages';
+import CreatePages from './CreatePages';
+import BankingInformation from './BankingInformation';
 import Setting from './Setting';
-import Support from './Support';
-import UpcomingCalls from './UpcomingCalls';
+import TermsOfService from './TermsOfService';
+import Help from './Help';
+import Coins from './Coins';
 
 export {
-  MyCalls,
-  Coins,
   MyProfile,
-  NewBiddingCall,
-  NewBookingCall,
+  Pages,
+  CreatePages,
+  BankingInformation,
   Setting,
-  Support,
-  Request,
-  UpcomingCalls,
+  TermsOfService,
+  Help,
+  Coins,
 };

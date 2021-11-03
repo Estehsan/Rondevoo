@@ -78,6 +78,6 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
-  Content: {paddingHorizontal: 5},
+  Content: {paddingHorizontal: 5, backgroundColor: '#fff'},
   padding30: {paddingVertical: 10},
 });

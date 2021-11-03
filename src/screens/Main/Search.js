@@ -122,11 +122,9 @@ const styles = StyleSheet.create({
   seperator: {
     height: 0.5,
     width: '100%',
-    backgroundColor: '#C8C8C8',
   },
   subcontainer: {
     flex: 1,
-    backgroundColor: theme.colors.bg,
   },
   p30: {
     paddingHorizontal: 30,

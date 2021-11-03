@@ -20,7 +20,5 @@ export default LogoBar;
 const styles = StyleSheet.create({
   main: {
     backgroundColor: 'white',
-    flexDirection: 'row',
-    alignItems: 'center',
   },
 });

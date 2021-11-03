@@ -1,5 +1,6 @@
 import H1 from './H1';
 import H1W from './H1W';
+import HeaderLogo from './HeaderLogo';
 
 import H2 from './H2';
 import H3 from './H3';
@@ -9,7 +10,6 @@ import Background from './Background';
 import Span from './Span';
 import DrawerContent from './DrawerContent';
 import Logo from './Logo';
-import ImgBackground from './ImgBackground';
 import Wbg from './Wbg';
 import TextField from './TextField';
 import TI from './TI';
@@ -35,7 +35,7 @@ export {
   Logo,
   DrawerContent,
   TI,
-  ImgBackground,
   Bg,
   H1W,
+  HeaderLogo,
 };
