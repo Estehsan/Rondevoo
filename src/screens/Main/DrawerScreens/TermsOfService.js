@@ -8,7 +8,7 @@ const TermsOfService = () => {
   return (
     <View style={styles.Main}>
       <View style={styles.content}>
-        <Title>Terms of Service</Title>
+        {/* <Title>Terms of Service</Title> */}
         <P>
           These Terms of Service (“Terms”) governs use of the Rondevoo platform
           offered by Rondevoo, LLC (“we”, “us”, or “Rondevoo”), including our
@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 30,
     alignItems: 'center',
-    paddingTop: 20,
-    paddingHorizontal: 10,
+    paddingTop: 30,
+    paddingHorizontal: 30,
     ...theme.colors.customShad2,
   },
 });

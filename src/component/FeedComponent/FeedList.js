@@ -12,7 +12,7 @@ import H2 from './../../component/basic/H2';
 import P from './../../component/basic/P';
 import Icon from 'react-native-vector-icons/Entypo';
 import Icon2 from 'react-native-vector-icons/AntDesign';
-import Icon3 from 'react-native-vector-icons/Octicons';
+import Icon3 from 'react-native-vector-icons/EvilIcons';
 import Icon4 from 'react-native-vector-icons/MaterialIcons';
 import {theme} from '../../theme/theme';
 
@@ -49,7 +49,7 @@ const FeedList = ({item}) => {
                     <P>10K</P>
                   </TouchableOpacity>
                   <View style={styles.row}>
-                    <Icon3 size={30} name="comment" style={styles.p10} />
+                    <Icon3 size={40} name="comment" style={styles.p10} />
                     <P>10K</P>
                   </View>
                   <View style={styles.row}>
@@ -89,8 +89,12 @@ const styles = StyleSheet.create({
   Content: {paddingVertical: 20, paddingHorizontal: 30},
   three: {
     flexDirection: 'row',
-    display: 'flex',
     justifyContent: 'space-evenly',
+  },
+  row: {
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
   },
   CommentLike: {
     paddingTop: 5,

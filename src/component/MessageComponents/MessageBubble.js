@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
   },
   rMessage: {
-    backgroundColor: 'grey',
+    backgroundColor: 'silver',
     marginLeft: 'auto',
     marginRight: 10,
   },

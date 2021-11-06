@@ -62,7 +62,7 @@ const Community = ({navigation}) => {
         onChangeText={text => setText(text)}
         right={<TextInput.Affix text="/100" />}
       />
-      <Btn placeholder="Create Booking Call" />
+      <Btn placeholder="Add to Community" />
     </AddTemplate>
   );
 };

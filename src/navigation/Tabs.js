@@ -117,10 +117,22 @@ const Tabs = () => {
         component={CommunityCreatePage}
       />
 
-      <All.Screen name="Calls" component={AddTable} />
-      <All.Screen name="Community" component={AddTable} />
-      <All.Screen name="Feed" component={AddTable} />
-      <All.Screen name="Store" component={AddTable} />
+      <All.Screen
+        name="Calls"
+        options={{headerShown: true, headerTintColor: 'white'}}
+        component={Calls}
+      />
+      <All.Screen
+        name="Community"
+        options={{headerShown: true, headerTintColor: 'white'}}
+        component={Community}
+      />
+      <All.Screen name="Feed" options={{headerShown: true}} component={Feed} />
+      <All.Screen
+        name="Store"
+        options={{headerShown: true, headerTintColor: 'white'}}
+        component={Store}
+      />
     </All.Navigator>
   );
 };
@@ -289,26 +301,26 @@ const AddStyling = {
     lineHeight: 40,
   },
 };
-function AddTable({navigation}) {
-  return (
-    <AddNavi.Navigator screenOptions={AddStyling}>
-      <AddNavi.Screen name="Add" component={Add} />
+// function AddTable({navigation}) {
+//   return (
+//     <AddNavi.Navigator screenOptions={AddStyling}>
+//       <AddNavi.Screen name="Add" component={Add} />
 
-      <AddNavi.Screen
-        name="Calls"
-        options={{headerShown: true}}
-        component={Calls}
-      />
-      <AddNavi.Screen name="Community" component={Community} />
-      <AddNavi.Screen
-        // options={{headerShown: false}}
-        name="Feed"
-        component={Feed}
-      />
-      <AddNavi.Screen name="Store" component={Store} />
-    </AddNavi.Navigator>
-  );
-}
+//       <AddNavi.Screen
+//         name="Calls"
+//         options={{headerShown: true}}
+//         component={Calls}
+//       />
+//       <AddNavi.Screen name="Community" component={Community} />
+//       <AddNavi.Screen
+//         // options={{headerShown: false}}
+//         name="Feed"
+//         component={Feed}
+//       />
+//       <AddNavi.Screen name="Store" component={Store} />
+//     </AddNavi.Navigator>
+//   );
+// }
 export default Tabs;
 
 const styles = StyleSheet.create({});

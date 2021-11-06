@@ -40,8 +40,8 @@ const Subscription = ({navigation}) => {
     });
   }, [navigation]);
   return (
-    <View>
-      <ProfileTop />
+    <View style={styles.Center}>
+      {/* <ProfileTop /> */}
       <View style={styles.Content}>
         <PurpleBtn
           iconName="account-group"
@@ -74,5 +74,9 @@ const styles = StyleSheet.create({
   Content: {
     paddingHorizontal: 20,
     paddingVertical: 20,
+  },
+  Center: {
+    flex: 1,
+    justifyContent: 'center',
   },
 });
