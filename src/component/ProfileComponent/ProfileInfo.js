@@ -35,15 +35,6 @@ const ProfileInfo = () => {
           </View>
         </View>
       </View>
-      <View style={styles.ExtraInfo}>
-        <H2>New</H2>
-        <H2>Top</H2>
-        <H2>@username</H2>
-      </View>
-      <View style={styles.edit}>
-        <H2>Today</H2>
-        <Icon2 size={25} name="pencil-alt" />
-      </View>
     </View>
   );
 };
@@ -82,15 +73,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginTop: 30,
   },
-  ExtraInfo: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    borderTopColor: 'black',
-    paddingTop: 20,
-    borderTopWidth: 0.5,
-    marginTop: 10,
-  },
+
   edit: {
     flexDirection: 'row',
     display: 'flex',

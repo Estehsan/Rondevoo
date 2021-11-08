@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: theme.colors.secondary,
+    backgroundColor: '#8200E2',
     marginVertical: 4,
     paddingVertical: 4,
     borderRadius: 20,

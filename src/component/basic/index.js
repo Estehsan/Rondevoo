@@ -15,6 +15,7 @@ import TextField from './TextField';
 import TI from './TI';
 import Bg from './Bg';
 import Btn from './Btn';
+import SmallBtn from './SmallBtn';
 
 import Heading from './Heading';
 import HeadingW from './HeadingW';
@@ -38,4 +39,5 @@ export {
   Bg,
   H1W,
   HeaderLogo,
+  SmallBtn,
 };

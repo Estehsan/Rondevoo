@@ -53,6 +53,7 @@ import AvatarDrawer from '../component/HomeComponent/AvatarDrawer';
 import {Avatar} from 'react-native-paper';
 import {H1, DrawerContent, HeadingW, HeaderLogo} from '../component/basic';
 import {
+  CallsCreatedPage,
   CommunityCreatePage,
   FeedCreatedPage,
   StoreCreatedPage,
@@ -89,6 +90,15 @@ const Tabs = () => {
         name="StoreCreatedPage"
         options={{headerShown: true}}
         component={StoreCreatedPage}
+      />
+      <All.Screen
+        name="CallsCreatedPage"
+        options={{
+          headerShown: true,
+
+          headerTitle: () => <HeaderLogo />,
+        }}
+        component={CallsCreatedPage}
       />
 
       <All.Screen name="Profile" component={Profile} />
