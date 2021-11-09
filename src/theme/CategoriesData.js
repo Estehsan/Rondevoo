@@ -5,6 +5,7 @@ export default [
     icon: 'sports-handball',
     color: '#578ddd',
     TextColor: '#fff',
+    SettingText: 'Follow',
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export default [
     icon: 'sports-volleyball',
     color: '#fff',
     TextColor: '#000',
+    SettingText: 'Setting',
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export default [
     icon: 'sports-soccer',
     color: '#fff',
     TextColor: '#000',
+    SettingText: 'Adds',
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export default [
     icon: 'sports-soccer',
     color: '#fff',
     TextColor: '#000',
+    SettingText: 'Account',
   },
   {
     id: 5,
@@ -33,5 +37,6 @@ export default [
     icon: 'sports-soccer',
     color: '#fff',
     TextColor: '#000',
+    SettingText: 'About',
   },
 ];

@@ -51,7 +51,13 @@ import LogoBar from '../component/HomeComponent/LogoBar';
 import AvatarDrawer from '../component/HomeComponent/AvatarDrawer';
 
 import {Avatar} from 'react-native-paper';
-import {H1, DrawerContent, HeadingW, HeaderLogo} from '../component/basic';
+import {
+  H1,
+  DrawerContent,
+  HeadingW,
+  HeaderLogo,
+  LogoHeader,
+} from '../component/basic';
 import {
   CallsCreatedPage,
   CommunityCreatePage,
@@ -156,14 +162,24 @@ function DrawerRoute({navigation}) {
         component={BottomTabNavigator}
       />
       <Drawer.Screen name="MyProfile" component={MyProfile} />
-      <Drawer.Screen name="Pages" component={Pages} />
+      <Drawer.Screen
+        options={{
+          headerShown: true,
+          headerTitle: () => <LogoHeader />,
+        }}
+        name="Pages"
+        component={Pages}
+      />
       <Drawer.Screen
         options={{headerShown: true, title: 'Create Pages'}}
         name="CreatePages"
         component={CreatePages}
       />
       <Drawer.Screen
-        options={{headerShown: true, title: 'Banking Information'}}
+        options={{
+          headerShown: true,
+          headerTitle: () => <LogoHeader />,
+        }}
         name="BankingInformation"
         component={BankingInformation}
       />
@@ -239,17 +255,7 @@ function BottomTabNavigator({navigation}) {
           headerShown: true,
 
           headerLeft: () => <AvatarDrawer onPress={navigation.openDrawer} />,
-          headerTitle: () => (
-            <View style={{marginTop: -20}}>
-              <Image
-                style={{
-                  width: 200,
-                }}
-                resizeMode="contain"
-                source={require('./../assets/img/purpleLogo.png')}
-              />
-            </View>
-          ),
+          headerTitle: () => <LogoHeader />,
           tabBarIcon: ({color, focused}) => (
             <EvilIcons
               style={Platform.OS === 'ios' ? styles.position : styles.position2}

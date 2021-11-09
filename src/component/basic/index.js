@@ -8,8 +8,11 @@ import H2W from './H2W';
 import P from './P';
 import Background from './Background';
 import Span from './Span';
+
 import DrawerContent from './DrawerContent';
 import Logo from './Logo';
+import LogoHeader from './LogoHeader';
+
 import Wbg from './Wbg';
 import TextField from './TextField';
 import TI from './TI';
@@ -40,4 +43,5 @@ export {
   H1W,
   HeaderLogo,
   SmallBtn,
+  LogoHeader,
 };
