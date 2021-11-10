@@ -189,7 +189,7 @@ function DrawerRoute({navigation}) {
         component={Setting}
       />
       <Drawer.Screen
-        options={{headerShown: true, title: 'TermsOfService'}}
+        options={{headerShown: true, headerTitle: () => <LogoHeader />}}
         name="TermsOfService"
         component={TermsOfService}
       />

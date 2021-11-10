@@ -21,7 +21,7 @@ const BankDetails = ({item}) => {
           resizeMode="contain"
           source={{
             // url: 'https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png',
-            url: item.img,
+            url: item.logo,
           }}
         />
         <Entypo name="chevron-right" size={15} />

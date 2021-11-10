@@ -1,8 +1,22 @@
 import React from 'react';
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
-import {Bg, H1, H3} from '../../../component/basic';
+import {
+  FlatList,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import {Bg, Btn, H1, H2, H3} from '../../../component/basic';
 import BankDetails from '../../../component/ProfileComponent/BankDetails';
 import {theme} from '../../../theme/theme';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {NavigationContainer} from '@react-navigation/native';
+import {BankingWithdrawImage} from '../../../component/DrawerScreensComponent';
+import {TextInput} from 'react-native-paper';
+import {ScrollView} from 'react-native-gesture-handler';
+
+const Tab = createMaterialTopTabNavigator();
 
 const data = [
   {
@@ -26,9 +40,9 @@ const data = [
     logo: 'https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png',
   },
 ];
-const BankingInformation = () => {
+function Deposit({navigation}) {
   return (
-    <View>
+    <Bg>
       <View style={styles.center}>
         <H1>Choose a deposit method</H1>
       </View>
@@ -39,13 +53,89 @@ const BankingInformation = () => {
           ItemSeparatorComponent={() => <View style={styles.separator} />}
         />
       </View>
-    </View>
+    </Bg>
+  );
+}
+function Withdraw({navigation}) {
+  const [text, setText] = React.useState('');
+
+  return (
+    <BankingWithdrawImage>
+      <View style={styles.padding}>
+        <H2>Before we start your Withdrawel</H2>
+      </View>
+
+      <TextInput
+        label="First Name"
+        value={text}
+        mode="outlined"
+        onChangeText={text => setText(text)}
+      />
+      <TextInput
+        label="Middle Name"
+        value={text}
+        mode="outlined"
+        onChangeText={text => setText(text)}
+      />
+      <TextInput
+        label="Business Name"
+        value={text}
+        mode="outlined"
+        onChangeText={text => setText(text)}
+      />
+      <TextInput
+        label="City"
+        value={text}
+        mode="outlined"
+        onChangeText={text => setText(text)}
+      />
+      <TextInput
+        label="Country"
+        value={text}
+        mode="outlined"
+        onChangeText={text => setText(text)}
+      />
+      <TextInput
+        label="Address "
+        value={text}
+        mode="outlined"
+        onChangeText={text => setText(text)}
+      />
+      <TextInput
+        label="First Name"
+        value={text}
+        mode="outlined"
+        onChangeText={text => setText(text)}
+      />
+      <View style={styles.padding}>
+        <Btn placeholder="Submit" />
+      </View>
+    </BankingWithdrawImage>
+  );
+}
+const BankingInformation = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: theme.colors.primary,
+        tabBarIndicatorStyle: {
+          backgroundColor: theme.colors.primary,
+          borderRadius: 10,
+        },
+      }}>
+      <Tab.Screen name="Deposit" component={Deposit} />
+      <Tab.Screen name="Withdraw" component={Withdraw} />
+    </Tab.Navigator>
   );
 };
 
 export default BankingInformation;
 
 const styles = StyleSheet.create({
+  Bg: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
   center: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -65,5 +155,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     // borderColor: '#eaeaea',
     borderColor: theme.colors.primary,
+  },
+  padding: {
+    paddingVertical: 20,
   },
 });
