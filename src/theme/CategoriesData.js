@@ -6,6 +6,7 @@ export default [
     color: '#578ddd',
     TextColor: '#fff',
     SettingText: 'Follow',
+    SettingIcon: 'attachment',
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export default [
     color: '#fff',
     TextColor: '#000',
     SettingText: 'Setting',
+    SettingIcon: 'bell',
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export default [
     color: '#fff',
     TextColor: '#000',
     SettingText: 'Adds',
+    SettingIcon: 'browser',
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export default [
     color: '#fff',
     TextColor: '#000',
     SettingText: 'Account',
+    SettingIcon: 'compass',
   },
   {
     id: 5,
@@ -38,5 +42,6 @@ export default [
     color: '#fff',
     TextColor: '#000',
     SettingText: 'About',
+    SettingIcon: 'creative-commons-remix',
   },
 ];

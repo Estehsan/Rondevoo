@@ -123,7 +123,7 @@ const AllScreens = ({navigation}) => {
       />
       <All.Screen
         name="FeedCreatedPage"
-        options={{headerShown: true}}
+        options={{headerShown: true, headerTitle: () => <HeaderLogo />}}
         component={FeedCreatedPage}
       />
       <All.Screen

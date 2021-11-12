@@ -11,10 +11,10 @@ function ListOfSettings({item}) {
   return (
     <View style={styles.ListOfSettings}>
       <View style={styles.Left}>
-        <Foundation
+        <Entypo
           style={{paddingLeft: 10, paddingRight: 20}}
-          name="social-facebook"
-          size={30}
+          name={item.SettingIcon}
+          size={25}
         />
         <H3>{item.SettingText}</H3>
       </View>
