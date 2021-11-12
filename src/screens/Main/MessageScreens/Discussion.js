@@ -2,6 +2,7 @@ import React, {useLayoutEffect} from 'react';
 import {
   FlatList,
   KeyboardAvoidingView,
+  Platform,
   SafeAreaView,
   StyleSheet,
   Text,

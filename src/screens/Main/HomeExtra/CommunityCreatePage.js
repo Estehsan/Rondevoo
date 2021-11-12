@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import Icon2 from 'react-native-vector-icons/FontAwesome5';
 
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
@@ -31,6 +33,22 @@ function New({navigation}) {
       <FlatList
         data={FeedData}
         keyExtractor={item => item.id}
+        ListHeaderComponent={() => (
+          <View style={styles.SubFilter}>
+            <View style={styles.surface}>
+              <Text>
+                Today
+                <Entypo name="chevron-down" size={20} />
+              </Text>
+            </View>
+
+            <TouchableOpacity
+              onPress={() => navigation.push('Community')}
+              style={styles.surface}>
+              <EvilIcons name="pencil" size={40} />
+            </TouchableOpacity>
+          </View>
+        )}
         renderItem={({item}) => (
           <View style={styles.FeedPostStyle}>
             <FeedList item={item} />
@@ -57,10 +75,7 @@ function Top({navigation}) {
             </View>
 
             <View style={styles.surface}>
-              <Ionicons name="filter" size={20} />
-
-              <Text>Filter</Text>
-              <Entypo name="chevron-down" size={20} />
+              <EvilIcons name="pencil" size={40} />
             </View>
           </View>
         )}
@@ -141,7 +156,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     paddingHorizontal: 20,
-    paddingVertical: 5,
+    paddingTop: 10,
     justifyContent: 'space-between',
   },
   surface: {

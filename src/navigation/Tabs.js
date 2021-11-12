@@ -69,9 +69,11 @@ import {
 const Stack = createBottomTabNavigator();
 const All = createNativeStackNavigator();
 const AddNavi = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
+const MessageNavi = createNativeStackNavigator();
 
-const Tabs = () => {
+const Drawers = createDrawerNavigator();
+
+const AllScreens = ({navigation}) => {
   return (
     <All.Navigator screenOptions={{headerShown: false}} initialRouteName="Home">
       <All.Screen name="GetStarted" component={GetStarted} />
@@ -79,11 +81,11 @@ const Tabs = () => {
       <All.Screen name="Login" component={Login} />
       <All.Screen name="Register" component={Register} />
 
-      <All.Screen name="Home" component={DrawerRoute} />
-      <All.Screen name="Message" component={BottomTabNavigator} />
+      <All.Screen options={{headerShown: true}} name="Home" component={Home} />
+      {/* <All.Screen name="Message" component={BottomTabNavigator} />
       <All.Screen name="Add" component={BottomTabNavigator} />
       <All.Screen name="Activity" component={BottomTabNavigator} />
-      <All.Screen name="Search" component={BottomTabNavigator} />
+      <All.Screen name="Search" component={BottomTabNavigator} /> */}
 
       <All.Screen name="Coins" component={Coins} />
 
@@ -108,11 +110,11 @@ const Tabs = () => {
       />
 
       <All.Screen name="Profile" component={Profile} />
-      <All.Screen
+      {/* <All.Screen
         name="Discussion"
         options={{headerShown: true}}
         component={Discussion}
-      />
+      /> */}
 
       <All.Screen
         name="SearchListInfo"
@@ -153,16 +155,23 @@ const Tabs = () => {
   );
 };
 
-function DrawerRoute({navigation}) {
+function Tabs({navigation}) {
   return (
-    <Drawer.Navigator drawerContent={DrawerContent}>
-      <Drawer.Screen
+    <Drawers.Navigator drawerContent={DrawerContent}>
+      <Drawers.Screen
         options={{headerShown: false}}
         name="Home"
         component={BottomTabNavigator}
       />
-      <Drawer.Screen name="MyProfile" component={MyProfile} />
-      <Drawer.Screen
+      <Drawers.Screen
+        options={{
+          headerShown: true,
+          // headerLeft: () => <AvatarDrawer onPress={navigation.openDrawer} />,
+        }}
+        name="MyProfile"
+        component={MyProfile}
+      />
+      <Drawers.Screen
         options={{
           headerShown: true,
           headerTitle: () => <LogoHeader />,
@@ -170,12 +179,12 @@ function DrawerRoute({navigation}) {
         name="Pages"
         component={Pages}
       />
-      <Drawer.Screen
-        options={{headerShown: true, title: 'Create Pages'}}
+      <Drawers.Screen
+        options={{headerShown: true, headerTitle: () => <LogoHeader />}}
         name="CreatePages"
         component={CreatePages}
       />
-      <Drawer.Screen
+      <Drawers.Screen
         options={{
           headerShown: true,
           headerTitle: () => <LogoHeader />,
@@ -183,27 +192,27 @@ function DrawerRoute({navigation}) {
         name="BankingInformation"
         component={BankingInformation}
       />
-      <Drawer.Screen
+      <Drawers.Screen
         options={{headerShown: true, title: 'Setting'}}
         name="Setting"
         component={Setting}
       />
-      <Drawer.Screen
+      <Drawers.Screen
         options={{headerShown: true, headerTitle: () => <LogoHeader />}}
         name="TermsOfService"
         component={TermsOfService}
       />
-      <Drawer.Screen
-        options={{headerShown: true, title: 'Help'}}
+      <Drawers.Screen
+        options={{headerShown: true, headerTitle: () => <LogoHeader />}}
         name="Help"
         component={Help}
       />
-      {/* <Drawer.Screen
+      {/* <Drawers.Screen
         options={{headerShown: true, title: 'Coins'}}
         name="Coins"
         component={Coins}
       /> */}
-    </Drawer.Navigator>
+    </Drawers.Navigator>
   );
 }
 const screenOptionStyle = {
@@ -220,9 +229,9 @@ function BottomTabNavigator({navigation}) {
       }}>
       <Stack.Screen
         name="Home"
-        component={Home}
+        component={AllScreens}
         options={{
-          headerShown: true,
+          headerShown: false,
           tabBarIcon: ({color, focused}) => (
             <Icon
               style={Platform.OS == 'ios' ? styles.position : styles.position2}
@@ -283,9 +292,9 @@ function BottomTabNavigator({navigation}) {
       />
       <Stack.Screen
         name="Message"
-        component={Message}
+        component={MessageScreens}
         options={{
-          headerShown: true,
+          headerShown: false,
           tabBarIcon: ({color, focused}) => (
             <EvilIcons
               style={Platform.OS === 'ios' ? styles.position : styles.position2}
@@ -317,26 +326,22 @@ const AddStyling = {
     lineHeight: 40,
   },
 };
-// function AddTable({navigation}) {
-//   return (
-//     <AddNavi.Navigator screenOptions={AddStyling}>
-//       <AddNavi.Screen name="Add" component={Add} />
-
-//       <AddNavi.Screen
-//         name="Calls"
-//         options={{headerShown: true}}
-//         component={Calls}
-//       />
-//       <AddNavi.Screen name="Community" component={Community} />
-//       <AddNavi.Screen
-//         // options={{headerShown: false}}
-//         name="Feed"
-//         component={Feed}
-//       />
-//       <AddNavi.Screen name="Store" component={Store} />
-//     </AddNavi.Navigator>
-//   );
-// }
+function MessageScreens({navigation}) {
+  return (
+    <MessageNavi.Navigator screenOptions={AddStyling}>
+      <MessageNavi.Screen
+        name="Message"
+        options={{headerShown: true}}
+        component={Message}
+      />
+      <MessageNavi.Screen
+        options={{headerShown: true}}
+        name="Discussion"
+        component={Discussion}
+      />
+    </MessageNavi.Navigator>
+  );
+}
 export default Tabs;
 
 const styles = StyleSheet.create({});

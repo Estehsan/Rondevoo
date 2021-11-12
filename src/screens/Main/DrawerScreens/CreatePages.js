@@ -6,20 +6,12 @@ import {Btn, H1, HeadingW} from '../../../component/basic';
 import {theme} from '../../../theme/theme';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import AvatarDrawer from '../../../component/HomeComponent/AvatarDrawer';
 
 const CreatePages = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTintColor: 'white',
-
-      headerStyle: {
-        backgroundColor: theme.colors.primary,
-        elevation: 0, // for Android
-        shadowOffset: {
-          width: 0,
-          height: 0, // for iOS
-        },
-      },
+      headerLeft: () => <AvatarDrawer onPress={navigation.openDrawer} />,
     });
   }, [navigation]);
   const [text, setText] = useState();

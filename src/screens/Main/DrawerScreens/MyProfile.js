@@ -11,6 +11,7 @@ import ActivitiesList from '../../../component/HomeComponent/ActivitiesList';
 import {UsersList} from '../../../dummyData';
 import HorizontalListStars from '../../../component/HomeComponent/HorizontalListStars';
 import ProfileTop from '../../../component/ProfileComponent/ProfileTop';
+import AvatarDrawer from '../../../component/HomeComponent/AvatarDrawer';
 
 const MyProfile = ({navigation}) => {
   useLayoutEffect(() => {
@@ -24,6 +25,7 @@ const MyProfile = ({navigation}) => {
           height: 0,
         },
       },
+      headerLeft: () => <AvatarDrawer onPress={navigation.openDrawer} />,
       headerRight: () => (
         <View style={styles.row}>
           <TouchableOpacity

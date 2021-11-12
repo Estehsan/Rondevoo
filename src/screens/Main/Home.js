@@ -2,7 +2,7 @@ import React, {useLayoutEffect} from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Avatar, Surface} from 'react-native-paper';
-import {H1} from '../../component/basic';
+import {H1, LogoHeader} from '../../component/basic';
 import ActivitiesList from '../../component/HomeComponent/ActivitiesList';
 import HorizontalListStars from '../../component/HomeComponent/HorizontalListStars';
 import LogoBar from '../../component/HomeComponent/LogoBar';
@@ -33,7 +33,7 @@ const Home = ({navigation}) => {
           />
         </TouchableOpacity>
       ),
-      headerTitle: () => <LogoBar />,
+      headerTitle: () => <LogoHeader />,
     });
   }, [navigation]);
   return (

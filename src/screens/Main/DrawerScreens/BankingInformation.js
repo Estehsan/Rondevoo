@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import {
   FlatList,
   Image,
@@ -15,6 +15,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {BankingWithdrawImage} from '../../../component/DrawerScreensComponent';
 import {TextInput} from 'react-native-paper';
 import {ScrollView} from 'react-native-gesture-handler';
+import AvatarDrawer from '../../../component/HomeComponent/AvatarDrawer';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -113,16 +114,14 @@ function Withdraw({navigation}) {
     </BankingWithdrawImage>
   );
 }
-const BankingInformation = () => {
+const BankingInformation = ({navigation}) => {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => <AvatarDrawer onPress={navigation.openDrawer} />,
+    });
+  }, [navigation]);
   return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarActiveTintColor: theme.colors.primary,
-        tabBarIndicatorStyle: {
-          backgroundColor: theme.colors.primary,
-          borderRadius: 10,
-        },
-      }}>
+    <Tab.Navigator screenOptions={{}}>
       <Tab.Screen name="Deposit" component={Deposit} />
       <Tab.Screen name="Withdraw" component={Withdraw} />
     </Tab.Navigator>

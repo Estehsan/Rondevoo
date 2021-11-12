@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 import {Bg, H3} from '../../../component/basic';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Foundation from 'react-native-vector-icons/Foundation';
 import {theme} from '../../../theme/theme';
 import CategoriesData from './../../../theme/CategoriesData';
+import AvatarDrawer from '../../../component/HomeComponent/AvatarDrawer';
 
 function ListOfSettings({item}) {
   return (
@@ -22,7 +23,12 @@ function ListOfSettings({item}) {
     </View>
   );
 }
-const Setting = () => {
+const Setting = ({navigation}) => {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => <AvatarDrawer onPress={navigation.openDrawer} />,
+    });
+  }, [navigation]);
   return (
     <Bg>
       <FlatList

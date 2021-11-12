@@ -43,11 +43,11 @@ const Subscription = ({navigation}) => {
     <View style={styles.Center}>
       {/* <ProfileTop /> */}
       <View style={styles.Content}>
-        <Text>Subscrition here</Text>
+        {/* <Text>Subscrition here</Text> */}
         <PurpleBtn
           iconName="account-group"
           placeholder={'Community'}
-          onPress={() => navigation.navigate('CommunityCreatePage')}
+          onPress={() => navigation.push('CommunityCreatePage')}
         />
         <PurpleBtn
           iconName="phone"

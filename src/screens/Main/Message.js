@@ -11,7 +11,7 @@ import {FlatList} from 'react-native-gesture-handler';
 import SearchBar from '../../component/HomeComponent/SearchBar';
 import {Avatar} from 'react-native-paper';
 import LogoBar from '../../component/HomeComponent/LogoBar';
-import {H1} from '../../component/basic';
+import {H1, LogoHeader} from '../../component/basic';
 import FieldSearch from '../../component/HomeComponent/FieldSearch';
 
 const data1 = [
@@ -75,7 +75,7 @@ const Message = ({navigation}) => {
           />
         </TouchableOpacity>
       ),
-      headerTitle: () => <LogoBar />,
+      headerTitle: () => <LogoHeader />,
     });
   }, [navigation]);
   return (

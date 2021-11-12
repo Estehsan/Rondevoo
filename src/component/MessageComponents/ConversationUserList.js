@@ -13,6 +13,7 @@ const ConversationUserList = ({item, navigation}) => {
           id: item.id,
           userName: item.userName,
           img: item.img,
+          navigation,
         })
       }
       style={styles.container}>
