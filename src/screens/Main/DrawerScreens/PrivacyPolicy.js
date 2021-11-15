@@ -1,15 +1,10 @@
 import React, {useLayoutEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Paragraph, Title} from 'react-native-paper';
-import {P} from '../../../component/basic';
-import {theme} from '../../../theme/theme';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-
-import {NavigationContainer} from '@react-navigation/native';
-import {BankingWithdrawImage} from '../../../component/DrawerScreensComponent';
 import AvatarDrawer from '../../../component/HomeComponent/AvatarDrawer';
+import {theme} from '../../../theme/theme';
 
-const TermsOfService = ({navigation}) => {
+const PrivacyPolicy = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => <AvatarDrawer onPress={navigation.openDrawer} />,
@@ -46,7 +41,7 @@ const TermsOfService = ({navigation}) => {
   );
 };
 
-export default TermsOfService;
+export default PrivacyPolicy;
 
 const styles = StyleSheet.create({
   Main: {flex: 1},

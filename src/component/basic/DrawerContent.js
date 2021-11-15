@@ -19,6 +19,10 @@ import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Foundation from 'react-native-vector-icons/Foundation';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 export default function DrawerContent({navigation}) {
   return (
@@ -34,32 +38,7 @@ export default function DrawerContent({navigation}) {
 
           <Title style={styles.title}>Muhammad Estehsan</Title>
           <Caption style={styles.caption}>@Estehsan</Caption>
-          <View style={styles.KarmaBar}>
-            <View style={styles.leftKarma}>
-              <Image
-                style={{height: 30, width: 30}}
-                source={require('./../../assets/img/iconLogo.jpeg')}
-              />
 
-              <View style={styles.linners}>
-                <Paragraph style={[styles.paragraph, styles.caption]}>
-                  Starting At
-                </Paragraph>
-                <Caption style={styles.caption}>10$</Caption>
-              </View>
-            </View>
-            <View style={{borderWidth: 0.5, borderColor: 'silver'}} />
-            <View style={styles.RightReddit}>
-              {/* <Icon size={28} name="star" color="#f1c40f" /> */}
-
-              <View style={styles.linners}>
-                <Paragraph style={[styles.paragraph, styles.caption]}>
-                  Rating
-                </Paragraph>
-                <Caption style={styles.caption}>⭐ ⭐ ⭐ ⭐</Caption>
-              </View>
-            </View>
-          </View>
           <View style={styles.row}>
             <View style={styles.section}>
               <Paragraph style={[styles.paragraph, styles.caption]}>
@@ -101,13 +80,13 @@ export default function DrawerContent({navigation}) {
           </TouchableRipple>
           <TouchableRipple onPress={() => navigation.navigate('Pages')}>
             <View style={styles.preference}>
-              <MaterialIcons
+              <Foundation
                 size={30}
-                name="find-in-page"
+                name="page-search"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Subheading>Pages</Subheading>
+              <Subheading>My Pages</Subheading>
             </View>
           </TouchableRipple>
           <TouchableRipple onPress={() => navigation.navigate('CreatePages')}>
@@ -121,29 +100,53 @@ export default function DrawerContent({navigation}) {
               <Subheading>Create Pages </Subheading>
             </View>
           </TouchableRipple>
-          <TouchableRipple
-            onPress={() => navigation.navigate('BankingInformation')}>
+          <TouchableRipple onPress={() => navigation.navigate('Deposit')}>
             <View style={styles.preference}>
-              <Feather
+              <MaterialCommunityIcons
                 size={30}
-                name="inbox"
+                name="credit-card-plus-outline"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Subheading>Banking Information</Subheading>
+              {/* <Image
+                source={require('./../../assets/img/Drawer/plus.png')}
+                style={{height: 30, width: 30, paddingHorizontal: 15}}
+              /> */}
+              <Subheading>Deposit</Subheading>
             </View>
           </TouchableRipple>
-
+          <TouchableRipple onPress={() => navigation.navigate('Withdraw')}>
+            <View style={styles.preference}>
+              <MaterialCommunityIcons
+                size={30}
+                name="tab-minus"
+                color="black"
+                style={{paddingHorizontal: 15}}
+              />
+              <Subheading>Withdraw</Subheading>
+            </View>
+          </TouchableRipple>
           <TouchableRipple
             onPress={() => navigation.navigate('TermsOfService')}>
             <View style={styles.preference}>
-              <Ionicons
+              <AntDesign
                 size={30}
-                name="hammer-outline"
+                name="book"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
               <Subheading>Terms Of Service </Subheading>
+            </View>
+          </TouchableRipple>
+          <TouchableRipple onPress={() => navigation.navigate('PrivacyPolicy')}>
+            <View style={styles.preference}>
+              <SimpleLineIcons
+                size={30}
+                name="lock"
+                color="black"
+                style={{paddingHorizontal: 15}}
+              />
+              <Subheading>Privacy Policy </Subheading>
             </View>
           </TouchableRipple>
 
@@ -160,13 +163,13 @@ export default function DrawerContent({navigation}) {
           </TouchableRipple>
           <TouchableRipple onPress={() => navigation.navigate('Help')}>
             <View style={styles.preference}>
-              <Icon
+              <AntDesign
                 size={30}
-                name="coins"
+                name="inbox"
                 color="black"
                 style={{paddingHorizontal: 15}}
               />
-              <Subheading>Help Center</Subheading>
+              <Subheading>Support</Subheading>
             </View>
           </TouchableRipple>
           <TouchableRipple onPress={() => navigation.navigate('Register')}>

@@ -1,12 +1,21 @@
 import React, {useLayoutEffect} from 'react';
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Dimensions,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Avatar, Surface} from 'react-native-paper';
 import {H1, LogoHeader} from '../../component/basic';
+import FeedList from '../../component/FeedComponent/FeedList';
 import ActivitiesList from '../../component/HomeComponent/ActivitiesList';
 import HorizontalListStars from '../../component/HomeComponent/HorizontalListStars';
 import LogoBar from '../../component/HomeComponent/LogoBar';
 import {UsersList} from '../../dummyData';
+import FeedData from '../../theme/FeedData';
 import {theme} from '../../theme/theme';
 
 const Home = ({navigation}) => {
@@ -41,7 +50,7 @@ const Home = ({navigation}) => {
       <FlatList
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
-          <>
+          <View style={{paddingHorizontal: 10}}>
             <H1>Subscriptions</H1>
 
             <FlatList
@@ -54,10 +63,15 @@ const Home = ({navigation}) => {
               )}
             />
             <H1>Activity</H1>
-          </>
+          </View>
         }
-        data={UsersList}
-        renderItem={({item}) => <ActivitiesList item={item} />}
+        data={FeedData}
+        // renderItem={({item}) => <ActivitiesList item={item} />}
+        renderItem={({item}) => (
+          <View style={styles.FeedPostStyle}>
+            <FeedList item={item} navigation={navigation} />
+          </View>
+        )}
       />
     </View>
   );
@@ -68,8 +82,15 @@ export default Home;
 const styles = StyleSheet.create({
   bg: {
     paddingTop: 10,
-    paddingHorizontal: 10,
+    // paddingHorizontal: 10,
     backgroundColor: 'white',
   },
   surface: {padding: 10, elevation: 4},
+  FeedPostStyle: {
+    width: Dimensions.get('window').width,
+    backgroundColor: 'white',
+    marginVertical: 10,
+    borderWidth: 0.2,
+    borderColor: 'silver',
+  },
 });

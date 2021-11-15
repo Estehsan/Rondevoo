@@ -38,11 +38,14 @@ import {
   BankingInformation,
   Coins,
   CreatePages,
+  Deposit,
   Help,
   MyProfile,
   Pages,
+  PrivacyPolicy,
   Setting,
   TermsOfService,
+  Withdraw,
 } from '../screens/Main/DrawerScreens';
 
 import {theme} from '../theme/theme';
@@ -58,12 +61,14 @@ import {
   HeaderLogo,
   LogoHeader,
 } from '../component/basic';
+
 import {
   CallsCreatedPage,
   CommunityCreatePage,
   FeedCreatedPage,
   StoreCreatedPage,
   Subscription,
+  DetailFeed,
 } from '../screens/Main/HomeExtra';
 
 const Stack = createBottomTabNavigator();
@@ -125,6 +130,11 @@ const AllScreens = ({navigation}) => {
         name="FeedCreatedPage"
         options={{headerShown: true, headerTitle: () => <HeaderLogo />}}
         component={FeedCreatedPage}
+      />
+      <All.Screen
+        name="DetailFeed"
+        options={{headerShown: true, headerTitle: () => <HeaderLogo />}}
+        component={DetailFeed}
       />
       <All.Screen
         name="CommunityCreatePage"
@@ -189,9 +199,18 @@ function Tabs({navigation}) {
           headerShown: true,
           headerTitle: () => <LogoHeader />,
         }}
-        name="BankingInformation"
-        component={BankingInformation}
+        name="Withdraw"
+        component={Withdraw}
       />
+      <Drawers.Screen
+        options={{
+          headerShown: true,
+          headerTitle: () => <LogoHeader />,
+        }}
+        name="Deposit"
+        component={Deposit}
+      />
+
       <Drawers.Screen
         options={{headerShown: true, title: 'Setting'}}
         name="Setting"
@@ -201,6 +220,11 @@ function Tabs({navigation}) {
         options={{headerShown: true, headerTitle: () => <LogoHeader />}}
         name="TermsOfService"
         component={TermsOfService}
+      />
+      <Drawers.Screen
+        options={{headerShown: true, headerTitle: () => <LogoHeader />}}
+        name="PrivacyPolicy"
+        component={PrivacyPolicy}
       />
       <Drawers.Screen
         options={{headerShown: true, headerTitle: () => <LogoHeader />}}

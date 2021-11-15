@@ -24,6 +24,7 @@ import SearchBar from '../../../component/HomeComponent/SearchBar';
 import {H2, H2W} from '../../../component/basic';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -106,7 +107,7 @@ function UserName({navigation}) {
 const CommunityCreatePage = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => <Icon2 size={30} name="hand-holding-usd" />,
+      headerRight: () => <SimpleLineIcons size={30} name="bag" />,
     });
   }, [navigation]);
   return (

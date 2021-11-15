@@ -6,6 +6,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  Pressable,
 } from 'react-native';
 import {Avatar} from 'react-native-paper';
 import H2 from './../../component/basic/H2';
@@ -16,7 +17,7 @@ import Icon3 from 'react-native-vector-icons/EvilIcons';
 import Icon4 from 'react-native-vector-icons/MaterialIcons';
 import {theme} from '../../theme/theme';
 
-const FeedList = ({item}) => {
+const FeedList = ({item, navigation}) => {
   const [like, setLike] = useState(false);
 
   return (
@@ -61,21 +62,35 @@ const FeedList = ({item}) => {
             </View>
           </View>
           {/* <P>{item.postContent}</P> */}
-          <P>
-            Wow That looks nice .It's a wonderfull Project. Lorem Ipsum is
-            simply dummy text of the printing and typesetting industry.
-          </P>
+          <Pressable
+            onPress={() =>
+              navigation.navigate('DetailFeed', {
+                item,
+              })
+            }>
+            <P>
+              Wow That looks nice .It's a wonderfull Project. Lorem Ipsum is
+              simply dummy text of the printing and typesetting industry.
+            </P>
+          </Pressable>
         </View>
-        <Image
-          resizeMode="cover"
-          style={{
-            height: 400,
-            width: '100%',
-          }}
-          source={{
-            url: item.postImg,
-          }}
-        />
+        <Pressable
+          onPress={() =>
+            navigation.navigate('DetailFeed', {
+              item,
+            })
+          }>
+          <Image
+            resizeMode="cover"
+            style={{
+              height: 400,
+              width: '100%',
+            }}
+            source={{
+              url: item.postImg,
+            }}
+          />
+        </Pressable>
       </View>
     </View>
   );

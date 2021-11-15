@@ -14,7 +14,7 @@ const BankingWithdrawImage = ({children}) => {
     <KeyboardAvoidingView
       style={styles.Main}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator="false">
         <View style={styles.topContainer}>
           <FindSvg />
         </View>
