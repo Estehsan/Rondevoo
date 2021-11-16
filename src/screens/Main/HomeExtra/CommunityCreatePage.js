@@ -8,8 +8,12 @@ import {
   FlatList,
   Dimensions,
   SafeAreaView,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
 } from 'react-native';
 import Icon2 from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
@@ -21,10 +25,13 @@ import ProfileInfo from '../../../component/ProfileComponent/ProfileInfo';
 import FeedData from '../../../theme/FeedData';
 import {theme} from '../../../theme/theme';
 import SearchBar from '../../../component/HomeComponent/SearchBar';
-import {H2, H2W} from '../../../component/basic';
+import {H2, H2W, TI} from '../../../component/basic';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import DiscussionData from '../../../theme/DiscussionData';
+import MessageBubble from '../../../component/MessageComponents/MessageBubble';
+import MessageInput from '../../../component/MessageComponents/MessageInput';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -91,22 +98,33 @@ function Top({navigation}) {
 }
 function UserName({navigation}) {
   return (
-    <View>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={100}
+      style={styles.container}>
       <FlatList
-        data={FeedData}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => (
-          <View style={styles.FeedPostStyle}>
-            <FeedList item={item} />
-          </View>
-        )}
+        data={DiscussionData.messages}
+        inverted
+        renderItem={({item}) => <MessageBubble item={item} />}
       />
-    </View>
+      <MessageInput />
+    </KeyboardAvoidingView>
   );
 }
 const CommunityCreatePage = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
+      headerStyle: {
+        backgroundColor: 'white',
+        shadowColor: 'transparent',
+        shadowRadius: 0,
+        borderBottomWidth: 0,
+        shadowOffset: {
+          height: 0,
+          // elevation: 0,
+        },
+      },
+
       headerRight: () => <SimpleLineIcons size={30} name="bag" />,
     });
   }, [navigation]);
@@ -167,5 +185,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 5,
     flexDirection: 'row',
+  },
+  center: {
+    ...theme.colors.customShad,
   },
 });

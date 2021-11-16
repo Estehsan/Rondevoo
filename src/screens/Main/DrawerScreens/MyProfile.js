@@ -12,6 +12,7 @@ import {UsersList} from '../../../dummyData';
 import HorizontalListStars from '../../../component/HomeComponent/HorizontalListStars';
 import ProfileTop from '../../../component/ProfileComponent/ProfileTop';
 import AvatarDrawer from '../../../component/HomeComponent/AvatarDrawer';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 const MyProfile = ({navigation}) => {
   useLayoutEffect(() => {
@@ -36,7 +37,7 @@ const MyProfile = ({navigation}) => {
           <TouchableOpacity
             onPress={navigation.openDrawer}
             style={{paddingHorizontal: 10}}>
-            <FontAwesome5 name="hand-holding-usd" size={30} />
+            <SimpleLineIcons size={30} name="bag" />
           </TouchableOpacity>
         </View>
       ),

@@ -47,7 +47,7 @@ const FeedPost = ({item}) => {
                     onPress={() => setLike(!like)}>
                     <Icon2
                       size={30}
-                      name={like ? 'hearto' : 'heart'}
+                      name={like ? 'like1' : 'like2'}
                       style={styles.p10}
                       color={like ? 'black' : 'red'}
                     />

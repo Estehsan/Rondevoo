@@ -58,6 +58,7 @@ const data1 = [
     img: 'md-arrow-back',
     sub: 'This is a Gamma Subtitle',
     time: '1w',
+    img: 'https://thumbs.dreamstime.com/b/close-up-portrait-nice-person-bristle-show-finger-okey-sign-isolated-pink-color-background-203466939.jpg',
   },
 ];
 

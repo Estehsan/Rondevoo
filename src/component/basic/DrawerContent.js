@@ -56,7 +56,7 @@ export default function DrawerContent({navigation}) {
         </View>
 
         <Drawer.Section>
-          <TouchableRipple onPress={() => navigation.navigate('Home')}>
+          {/* <TouchableRipple onPress={() => navigation.navigate('Home')}>
             <View style={styles.preference}>
               <Feather
                 size={30}
@@ -66,7 +66,7 @@ export default function DrawerContent({navigation}) {
               />
               <Subheading> Home</Subheading>
             </View>
-          </TouchableRipple>
+          </TouchableRipple> */}
           <TouchableRipple onPress={() => navigation.navigate('MyProfile')}>
             <View style={styles.preference}>
               <Feather

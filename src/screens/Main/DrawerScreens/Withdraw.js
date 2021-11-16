@@ -20,48 +20,55 @@ const Withdraw = ({navigation}) => {
       </View>
 
       <TextInput
+        style={styles.gap}
         label="First Name"
         value={text}
         mode="outlined"
         onChangeText={text => setText(text)}
       />
       <TextInput
+        style={styles.gap}
         label="Middle Name"
         value={text}
         mode="outlined"
         onChangeText={text => setText(text)}
       />
       <TextInput
+        style={styles.gap}
         label="Business Name"
         value={text}
         mode="outlined"
         onChangeText={text => setText(text)}
       />
       <TextInput
+        style={styles.gap}
         label="City"
         value={text}
         mode="outlined"
         onChangeText={text => setText(text)}
       />
       <TextInput
+        style={styles.gap}
         label="Country"
         value={text}
         mode="outlined"
         onChangeText={text => setText(text)}
       />
       <TextInput
+        style={styles.gap}
         label="Address "
         value={text}
         mode="outlined"
         onChangeText={text => setText(text)}
       />
       <TextInput
+        style={styles.gap}
         label="First Name"
         value={text}
         mode="outlined"
         onChangeText={text => setText(text)}
       />
-      <View style={styles.padding}>
+      <View style={styles.gap}>
         <Btn placeholder="Submit" />
       </View>
     </BankingWithdrawImage>
@@ -70,4 +77,6 @@ const Withdraw = ({navigation}) => {
 
 export default Withdraw;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  gap: {paddingVertical: 10},
+});

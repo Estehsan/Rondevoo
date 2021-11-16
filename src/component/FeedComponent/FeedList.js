@@ -40,12 +40,12 @@ const FeedList = ({item, navigation}) => {
                 <View style={styles.three}>
                   <TouchableOpacity
                     style={styles.row}
-                    onPress={() => setLike(!like)}>
+                    onPress={() => setLike(like)}>
                     <Icon2
                       size={30}
-                      name={like ? 'hearto' : 'heart'}
+                      name={like ? 'like1' : 'like2'}
                       style={styles.p10}
-                      color={like ? 'black' : 'red'}
+                      color={like ? 'red' : 'black'}
                     />
                     <P>10K</P>
                   </TouchableOpacity>

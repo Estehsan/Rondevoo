@@ -3,13 +3,13 @@ import {StyleSheet, Text, View, TextInput} from 'react-native';
 import {theme} from '../../theme/theme';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 
-const TI = ({description, iconName, ...props}) => {
+const TI = ({description, iconName, data, ...props}) => {
   return (
     <View style={styles.container}>
       <View>
         <MIcon name="search" size={20} color={theme.colors.silver} />
       </View>
-      <View style={{width: '80%'}}>
+      <View style={{width: data}}>
         <TextInput
           style={styles.Input}
           placeholderTextColor={theme.colors.silver}

@@ -29,7 +29,7 @@ const SearchBar = ({navigation, children}) => {
         </TouchableOpacity>
       </View>
       <View style={styles.center}>
-        <TI />
+        <TI data="80%" />
       </View>
       <View style={styles.right}>
         <View style={styles.left}>

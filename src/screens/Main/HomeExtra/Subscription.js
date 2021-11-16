@@ -41,7 +41,7 @@ const Subscription = ({navigation}) => {
   }, [navigation]);
   return (
     <View style={styles.Center}>
-      {/* <ProfileTop /> */}
+      <ProfileTop />
       <View style={styles.Content}>
         {/* <Text>Subscrition here</Text> */}
         <PurpleBtn

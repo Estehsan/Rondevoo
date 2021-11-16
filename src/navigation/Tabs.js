@@ -166,12 +166,19 @@ const AllScreens = ({navigation}) => {
 };
 
 function Tabs({navigation}) {
+  return <BottomTabNavigator />;
+}
+const screenOptionStyle = {
+  headerShown: false,
+};
+
+function DrawerNavigator({navigation}) {
   return (
     <Drawers.Navigator drawerContent={DrawerContent}>
       <Drawers.Screen
         options={{headerShown: false}}
         name="Home"
-        component={BottomTabNavigator}
+        component={AllScreens}
       />
       <Drawers.Screen
         options={{
@@ -232,16 +239,14 @@ function Tabs({navigation}) {
         component={Help}
       />
       {/* <Drawers.Screen
-        options={{headerShown: true, title: 'Coins'}}
-        name="Coins"
-        component={Coins}
-      /> */}
+      options={{headerShown: true, title: 'Coins'}}
+      name="Coins"
+      component={Coins}
+    /> */}
     </Drawers.Navigator>
   );
 }
-const screenOptionStyle = {
-  headerShown: false,
-};
+
 function BottomTabNavigator({navigation}) {
   return (
     <Stack.Navigator
@@ -253,7 +258,7 @@ function BottomTabNavigator({navigation}) {
       }}>
       <Stack.Screen
         name="Home"
-        component={AllScreens}
+        component={DrawerNavigator}
         options={{
           headerShown: false,
           tabBarIcon: ({color, focused}) => (

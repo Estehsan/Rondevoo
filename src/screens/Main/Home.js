@@ -33,7 +33,8 @@ const Home = ({navigation}) => {
       headerLeft: () => (
         <TouchableOpacity
           onPress={navigation.openDrawer}
-          style={{paddingHorizontal: 10}}>
+          // style={{paddingHorizontal: 10}}
+        >
           <Avatar.Image
             size={35}
             source={{

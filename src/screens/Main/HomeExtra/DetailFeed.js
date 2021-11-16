@@ -104,7 +104,7 @@ const TopDetailsOfFeed = ({route}) => {
                 onPress={() => setLike(!like)}>
                 <Icon2
                   size={30}
-                  name={like ? 'heart' : 'hearto'}
+                  name={like ? 'like1' : 'like2'}
                   style={styles.p10}
                   color={like ? 'red' : 'black'}
                 />

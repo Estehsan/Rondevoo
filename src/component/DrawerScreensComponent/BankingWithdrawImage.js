@@ -28,7 +28,7 @@ export default BankingWithdrawImage;
 
 const styles = StyleSheet.create({
   Main: {
-    backgroundColor: theme.colors.primary,
+    // backgroundColor: theme.colors.primary,
     flex: 1,
   },
   topContainer: {
