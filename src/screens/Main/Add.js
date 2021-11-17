@@ -13,13 +13,39 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import {theme} from '../../theme/theme';
 import {Avatar, Button, TextInput} from 'react-native-paper';
 import LogoBar from '../../component/HomeComponent/LogoBar';
-import {Bg, H1, H1W, H2, H3, HeadingW, Btn, P} from '../../component/basic';
+import {
+  Bg,
+  H1,
+  H1W,
+  H2,
+  H3,
+  HeadingW,
+  Btn,
+  P,
+  LogoHeader,
+} from '../../component/basic';
 import HorizontalListStars from '../../component/HomeComponent/HorizontalListStars';
 import {UsersList} from '../../dummyData';
 import {PurpleBtn} from '../../component/AddComponent';
 import AddScreenHorizontalList from '../../component/HomeComponent/AddScreenHorizontalList';
+import AvatarDrawer from '../../component/HomeComponent/AvatarDrawer';
 
 const Add = ({navigation}) => {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: '#fff',
+        height: 100,
+        shadowColor: 'transparent',
+        shadowRadius: 0,
+        shadowOffset: {
+          height: 0,
+        },
+      },
+      headerLeft: () => <AvatarDrawer onPress={navigation.openDrawer} />,
+      headerTitle: () => <LogoHeader />,
+    });
+  }, [navigation]);
   return (
     <Bg>
       <P></P>

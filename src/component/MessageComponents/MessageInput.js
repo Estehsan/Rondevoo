@@ -8,7 +8,7 @@ const MessageInput = () => {
       <TextInput
         style={{borderRadius: 20}}
         mode="outlined"
-        placeholder="Enter Messageas"
+        placeholder="Type something"
         right={<TextInput.Icon name="send" />}
       />
     </View>

@@ -9,7 +9,7 @@ const FieldSearch = () => {
   return (
     // <View style={styles.SearchBarStyle}>
     <Searchbar
-      placeholder="Search a Conversation"
+      placeholder="Search for a Conversation"
       onChangeText={onChangeSearch}
       value={searchQuery}
       style={styles.Searchstyle}

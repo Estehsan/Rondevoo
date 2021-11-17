@@ -81,9 +81,7 @@ const Register = ({navigation}) => {
                   routes: [{name: 'Home'}],
                 })
               }>
-              <Btn>
-                <H2W>Register</H2W>
-              </Btn>
+              <Btn placeholder="Register" />
             </TouchableOpacity>
           </View>
         </View>

@@ -39,7 +39,7 @@ export default function DrawerContent({navigation}) {
           <Title style={styles.title}>Muhammad Estehsan</Title>
           <Caption style={styles.caption}>@Estehsan</Caption>
 
-          <View style={styles.row}>
+          {/* <View style={styles.row}>
             <View style={styles.section}>
               <Paragraph style={[styles.paragraph, styles.caption]}>
                 54
@@ -52,7 +52,7 @@ export default function DrawerContent({navigation}) {
               </Paragraph>
               <Caption style={styles.caption}>Followers</Caption>
             </View>
-          </View>
+          </View> */}
         </View>
 
         <Drawer.Section>

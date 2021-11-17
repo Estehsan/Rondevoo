@@ -65,6 +65,7 @@ const DetailFeed = ({route}) => {
 const TopDetailsOfFeed = ({route}) => {
   const {item} = route.params;
   const [like, setLike] = useState(false);
+  const [dislike, setDislike] = useState(false);
 
   return (
     <>
@@ -107,6 +108,17 @@ const TopDetailsOfFeed = ({route}) => {
                   name={like ? 'like1' : 'like2'}
                   style={styles.p10}
                   color={like ? 'red' : 'black'}
+                />
+                <P>10K</P>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.row}
+                onPress={() => setDislike(!dislike)}>
+                <Icon2
+                  size={30}
+                  name={dislike ? 'dislike1' : 'dislike2'}
+                  style={styles.p10}
+                  color={dislike ? 'red' : 'black'}
                 />
                 <P>10K</P>
               </TouchableOpacity>

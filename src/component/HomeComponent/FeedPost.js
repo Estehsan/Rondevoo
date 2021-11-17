@@ -13,6 +13,7 @@ import {theme} from './../../theme/theme';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 const FeedPost = ({item}) => {
   const [like, setLike] = useState(false);
+  const [unlike, setUnlike] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -51,8 +52,18 @@ const FeedPost = ({item}) => {
                       style={styles.p10}
                       color={like ? 'black' : 'red'}
                     />
-                    <P>10K</P>
+                    <P>10Kssss</P>
                   </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.row}
+                    onPress={() => setUnlike(!unlike)}>
+                    <Icon2
+                      size={25}
+                      name={unlike ? 'dislike1' : 'dislike2'}
+                      color={unlike ? 'red' : 'black'}
+                    />
+                  </TouchableOpacity>
+
                   <View style={styles.row}>
                     <Icon3 size={30} name="comment" style={styles.p10} />
                     <P>10K</P>

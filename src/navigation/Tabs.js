@@ -69,6 +69,7 @@ import {
   StoreCreatedPage,
   Subscription,
   DetailFeed,
+  CommunityPageDiscussion,
 } from '../screens/Main/HomeExtra';
 
 const Stack = createBottomTabNavigator();
@@ -146,6 +147,15 @@ const AllScreens = ({navigation}) => {
       />
 
       <All.Screen
+        name="CommunityPageDiscussion"
+        options={{
+          headerShown: true,
+          headerTitle: () => <HeaderLogo />,
+        }}
+        component={CommunityPageDiscussion}
+      />
+
+      <All.Screen
         name="Calls"
         options={{headerShown: true, headerTintColor: 'white'}}
         component={Calls}
@@ -166,7 +176,7 @@ const AllScreens = ({navigation}) => {
 };
 
 function Tabs({navigation}) {
-  return <BottomTabNavigator />;
+  return <DrawerNavigator />;
 }
 const screenOptionStyle = {
   headerShown: false,
@@ -177,8 +187,8 @@ function DrawerNavigator({navigation}) {
     <Drawers.Navigator drawerContent={DrawerContent}>
       <Drawers.Screen
         options={{headerShown: false}}
-        name="Home"
-        component={AllScreens}
+        name="HomeBottom"
+        component={BottomTabNavigator}
       />
       <Drawers.Screen
         options={{
@@ -250,15 +260,15 @@ function DrawerNavigator({navigation}) {
 function BottomTabNavigator({navigation}) {
   return (
     <Stack.Navigator
-      screenOptions={screenOptionStyle}
-      tabBarOptions={{
-        activeTintColor: theme.colors.primary,
-        inactiveTintColor: 'black',
-        showLabel: false,
+      // screenOptions={screenOptionStyle}
+      screenOptions={{
+        tabBarActiveTintColor: theme.colors.primary,
+        tabBarInactiveTintColor: 'black',
+        tabBarShowLabel: false,
       }}>
       <Stack.Screen
-        name="Home"
-        component={DrawerNavigator}
+        name="HomeAllScreens"
+        component={AllScreens}
         options={{
           headerShown: false,
           tabBarIcon: ({color, focused}) => (
@@ -292,8 +302,8 @@ function BottomTabNavigator({navigation}) {
         options={{
           headerShown: true,
 
-          headerLeft: () => <AvatarDrawer onPress={navigation.openDrawer} />,
-          headerTitle: () => <LogoHeader />,
+          // headerLeft: () => <AvatarDrawer onPress={navigation.openDrawer} />,
+          // headerTitle: () => <LogoHeader />,
           tabBarIcon: ({color, focused}) => (
             <EvilIcons
               style={Platform.OS === 'ios' ? styles.position : styles.position2}

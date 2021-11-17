@@ -28,10 +28,11 @@ import SearchBar from '../../../component/HomeComponent/SearchBar';
 import {H2, H2W, TI} from '../../../component/basic';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import DiscussionData from '../../../theme/DiscussionData';
 import MessageBubble from '../../../component/MessageComponents/MessageBubble';
 import MessageInput from '../../../component/MessageComponents/MessageInput';
+import {Subheading, Surface} from 'react-native-paper';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -98,17 +99,40 @@ function Top({navigation}) {
 }
 function UserName({navigation}) {
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={100}
-      style={styles.container}>
+    <View>
       <FlatList
-        data={DiscussionData.messages}
-        inverted
-        renderItem={({item}) => <MessageBubble item={item} />}
+        data={FeedData}
+        keyExtractor={item => item.id}
+        ListHeaderComponent={() => (
+          <View style={styles.SubFilter}>
+            <View style={styles.surface}>
+              <Text>
+                Today
+                <Entypo name="chevron-down" size={20} />
+              </Text>
+            </View>
+            <Surface style={styles.RoomButton}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('CommunityPageDiscussion')}>
+                <Subheading style={{color: theme.colors.primary}}>
+                  Username room
+                </Subheading>
+              </TouchableOpacity>
+            </Surface>
+            <TouchableOpacity
+              onPress={() => navigation.push('Community')}
+              style={styles.surface}>
+              <EvilIcons name="pencil" size={40} />
+            </TouchableOpacity>
+          </View>
+        )}
+        renderItem={({item}) => (
+          <View style={styles.FeedPostStyle}>
+            <FeedList item={item} />
+          </View>
+        )}
       />
-      <MessageInput />
-    </KeyboardAvoidingView>
+    </View>
   );
 }
 const CommunityCreatePage = ({navigation}) => {
@@ -125,7 +149,11 @@ const CommunityCreatePage = ({navigation}) => {
         },
       },
 
-      headerRight: () => <SimpleLineIcons size={30} name="bag" />,
+      headerRight: () => (
+        <TouchableOpacity onPress={() => navigation.navigate('Add')}>
+          <FontAwesome size={30} name="dollar" />
+        </TouchableOpacity>
+      ),
     });
   }, [navigation]);
   return (
@@ -185,6 +213,14 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 5,
     flexDirection: 'row',
+  },
+  RoomButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+    backgroundColor: theme.colors.bg,
+    borderRadius: 10,
+    width: 150,
   },
   center: {
     ...theme.colors.customShad,

@@ -3,7 +3,6 @@ import {
   FlatList,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -11,11 +10,12 @@ import {
 } from 'react-native';
 import {Avatar, Title} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
+import GroupMessageBubble from '../../../component/MessageComponents/GroupMessageBubble';
 import MessageBubble from '../../../component/MessageComponents/MessageBubble';
 import MessageInput from '../../../component/MessageComponents/MessageInput';
 import DiscussionData from '../../../theme/DiscussionData';
 
-const Discussion = ({navigation, route}) => {
+const CommunityPageDiscussion = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
@@ -31,38 +31,29 @@ const Discussion = ({navigation, route}) => {
           <Icon name="md-arrow-back" size={30} />
         </TouchableOpacity>
       ),
-      headerTitle: () => <Title>{route.params.userName}</Title>,
-      headerRight: () => (
-        <Avatar.Image
-          size={30}
-          source={{
-            url: route.params.img,
-          }}
-        />
-      ),
+      headerTitle: () => <Title>Kobe Bryan</Title>,
     });
   }, [navigation]);
-
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={100}
       style={styles.container}>
       <FlatList
-        data={DiscussionData.messages}
+        data={DiscussionData.groupMessage}
         inverted
-        renderItem={({item}) => <MessageBubble item={item} />}
+        renderItem={({item}) => <GroupMessageBubble ageBubble item={item} />}
       />
       <MessageInput />
     </KeyboardAvoidingView>
   );
 };
 
-export default Discussion;
+export default CommunityPageDiscussion;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 10,
+    backgroundColor: 'white',
   },
 });

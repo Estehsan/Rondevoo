@@ -19,6 +19,7 @@ import {theme} from '../../theme/theme';
 
 const FeedList = ({item, navigation}) => {
   const [like, setLike] = useState(false);
+  const [unlike, setUnlike] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -40,12 +41,23 @@ const FeedList = ({item, navigation}) => {
                 <View style={styles.three}>
                   <TouchableOpacity
                     style={styles.row}
-                    onPress={() => setLike(like)}>
+                    onPress={() => setLike(!like)}>
                     <Icon2
                       size={30}
                       name={like ? 'like1' : 'like2'}
                       style={styles.p10}
                       color={like ? 'red' : 'black'}
+                    />
+                    <P>10K</P>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={styles.row}
+                    onPress={() => setUnlike(!unlike)}>
+                    <Icon2
+                      size={30}
+                      name={unlike ? 'dislike1' : 'dislike2'}
+                      color={unlike ? 'red' : 'black'}
                     />
                     <P>10K</P>
                   </TouchableOpacity>

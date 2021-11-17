@@ -4,6 +4,7 @@ import {Avatar} from 'react-native-paper';
 import {PurpleBtn} from '../../../component/AddComponent';
 import {Bg} from '../../../component/basic';
 import LogoBar from '../../../component/HomeComponent/LogoBar';
+import ProfileInfo from '../../../component/ProfileComponent/ProfileInfo';
 import ProfileTop from '../../../component/ProfileComponent/ProfileTop';
 
 const Subscription = ({navigation}) => {
@@ -41,29 +42,46 @@ const Subscription = ({navigation}) => {
   }, [navigation]);
   return (
     <View style={styles.Center}>
-      <ProfileTop />
+      <ProfileInfo />
       <View style={styles.Content}>
         {/* <Text>Subscrition here</Text> */}
-        <PurpleBtn
-          iconName="account-group"
-          placeholder={'Community'}
-          onPress={() => navigation.push('CommunityCreatePage')}
-        />
-        <PurpleBtn
-          iconName="phone"
-          placeholder={'Calls'}
-          onPress={() => navigation.navigate('CallsCreatedPage')}
-        />
-        <PurpleBtn
-          iconName="camera"
-          placeholder={'Feed'}
-          onPress={() => navigation.navigate('FeedCreatedPage')}
-        />
-        <PurpleBtn
-          iconName="store"
-          placeholder={'Store'}
-          onPress={() => navigation.navigate('StoreCreatedPage')}
-        />
+        <View>
+          <View style={styles.gap}>
+            <PurpleBtn
+              style={styles.gap}
+              iconName="account-group"
+              placeholder={'Community'}
+              onPress={() => navigation.push('CommunityCreatePage')}
+            />
+          </View>
+
+          <View style={styles.gap}>
+            <PurpleBtn
+              style={styles.gap}
+              iconName="phone"
+              placeholder={'Calls'}
+              onPress={() => navigation.navigate('CallsCreatedPage')}
+            />
+          </View>
+
+          <View style={styles.gap}>
+            <PurpleBtn
+              style={styles.gap}
+              iconName="camera"
+              placeholder={'Feed'}
+              onPress={() => navigation.navigate('FeedCreatedPage')}
+            />
+          </View>
+
+          <View style={styles.gap}>
+            <PurpleBtn
+              style={styles.gap}
+              iconName="store"
+              placeholder={'Store'}
+              onPress={() => navigation.navigate('StoreCreatedPage')}
+            />
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -73,11 +91,17 @@ export default Subscription;
 
 const styles = StyleSheet.create({
   Content: {
+    flex: 1,
+    // alignContent: 'center',
+    justifyContent: 'center',
     paddingHorizontal: 20,
     paddingVertical: 20,
+    // alignItems: 'center',
   },
   Center: {
     flex: 1,
-    justifyContent: 'center',
+  },
+  gap: {
+    marginVertical: 15,
   },
 });

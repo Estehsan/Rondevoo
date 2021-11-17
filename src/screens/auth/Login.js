@@ -63,9 +63,7 @@ const Login = ({navigation}) => {
           />
           <View style={styles.P10}>
             <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-              <Btn>
-                <H2W>Login</H2W>
-              </Btn>
+              <Btn placeholder="Login" />
             </TouchableOpacity>
           </View>
         </View>

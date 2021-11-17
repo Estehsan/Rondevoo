@@ -21,7 +21,7 @@ const ProfileInfo = () => {
         <View style={styles.BioInfo}>
           <View style={styles.BioHere}>
             <View>
-              <Subtitle>Page Name</Subtitle>
+              <Subtitle>Page Name </Subtitle>
               <H3>
                 Page Bio is here !! Yes this is my Bio!I'm loving this design
                 and Follow me now
