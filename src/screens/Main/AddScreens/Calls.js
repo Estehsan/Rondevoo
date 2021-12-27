@@ -1,6 +1,12 @@
 import React, {useLayoutEffect, useState} from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
-import {TextInput} from 'react-native-paper';
+import {
+  Checkbox,
+  Paragraph,
+  Subheading,
+  TextInput,
+  Title,
+} from 'react-native-paper';
 import {theme} from '../../../theme/theme';
 import {AddTemplate, PurpleBtn} from '../../../component/AddComponent';
 import {Btn} from '../../../component/basic';
@@ -23,6 +29,8 @@ const Calls = ({navigation}) => {
   const [description, setDescription] = useState();
   const [Length, setLength] = useState();
   const [Availability, setAvailablity] = useState();
+
+  const [checked, setChecked] = useState(false);
 
   return (
     <AddTemplate
@@ -65,6 +73,47 @@ const Calls = ({navigation}) => {
           value={text}
           onChangeText={text => setText(text)}
         />
+        <View style={styles.BoxItem}>
+          <Title>Availability</Title>
+          <Checkbox.Item
+            color="red"
+            status={checked ? 'checked' : 'unchecked'}
+            label="Monday"
+            onPress={() => {
+              setChecked(!checked);
+            }}
+          />
+          <Checkbox.Item
+            color="red"
+            status={checked ? 'checked' : 'unchecked'}
+            label="Tuesday"
+            onPress={() => {
+              setChecked(!checked);
+            }}
+          />
+          <Checkbox.Item
+            color="red"
+            status={checked ? 'checked' : 'unchecked'}
+            label="Wednesday"
+            onPress={() => {
+              setChecked(!checked);
+            }}
+          />
+          <Checkbox.Item
+            color="red"
+            status={checked ? 'checked' : 'unchecked'}
+            label="Thursday"
+            onPress={() => {
+              setChecked(!checked);
+            }}
+          />
+        </View>
+        <View style={styles.BoxItem}>
+          <Title>Payment</Title>
+          <Paragraph>Select Below</Paragraph>
+          <Paragraph>Priced or Free?</Paragraph>
+          <View style={styles.row}></View>
+        </View>
         <Btn placeholder="Add to Community" />
       </ScrollView>
     </AddTemplate>
@@ -83,8 +132,9 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.bg,
     height: 100,
   },
-  inputStyle: {
-    marginVertical: 10,
+  BoxItem: {
+    padding: 20,
     backgroundColor: theme.colors.bg,
+    marginVertical: 5,
   },
 });
