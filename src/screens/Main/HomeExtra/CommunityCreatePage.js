@@ -115,7 +115,8 @@ function UserName({navigation}) {
               <TouchableOpacity
                 onPress={() => navigation.navigate('CommunityPageDiscussion')}>
                 <Subheading style={{color: theme.colors.primary}}>
-                  Username room
+                  {/* Username room */}
+                  Group Chat
                 </Subheading>
               </TouchableOpacity>
             </Surface>

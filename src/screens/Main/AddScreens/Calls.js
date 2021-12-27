@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {theme} from '../../../theme/theme';
 import {AddTemplate, PurpleBtn} from '../../../component/AddComponent';
@@ -28,25 +28,45 @@ const Calls = ({navigation}) => {
     <AddTemplate
       title="Creat a call"
       subTitle="Use the following features below to create a call">
-      <TextInput
-        style={styles.inputStyle}
-        label="Call"
-        value={text}
-        onChangeText={text => setText(text)}
-      />
-      <TextInput
-        style={styles.inputStyle}
-        label="Timing"
-        value={text}
-        onChangeText={text => setText(text)}
-      />
-      <TextInput
-        style={styles.inputStyle}
-        label="Other Fields"
-        value={text}
-        onChangeText={text => setText(text)}
-      />
-      <Btn placeholder="Add to Community" />
+      <ScrollView>
+        <TextInput
+          style={styles.inputStyle}
+          label="Call Title"
+          value={text}
+          onChangeText={text => setText(text)}
+        />
+        <TextInput
+          style={styles.inputStyle}
+          label="Tags"
+          value={text}
+          onChangeText={text => setText(text)}
+        />
+        <TextInput
+          style={styles.inputStyle}
+          label="Description"
+          value={text}
+          onChangeText={text => setText(text)}
+        />
+        <TextInput
+          style={styles.inputStyle}
+          label="Banner Image"
+          value={text}
+          onChangeText={text => setText(text)}
+        />
+        <TextInput
+          style={styles.inputStyle}
+          label="Banner Image"
+          value={text}
+          onChangeText={text => setText(text)}
+        />
+        <TextInput
+          style={styles.inputStyle}
+          label="Length of Time (in minutes)"
+          value={text}
+          onChangeText={text => setText(text)}
+        />
+        <Btn placeholder="Add to Community" />
+      </ScrollView>
     </AddTemplate>
   );
 };

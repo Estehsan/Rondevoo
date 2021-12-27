@@ -46,12 +46,12 @@ export default [
     imageUri:
       'https://images.unsplash.com/photo-1496595351388-d74ec2c9c9cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=886&q=80',
   },
-  {
-    id: 'gadsasdsa',
-    // name: 'Shani ',
-    // subTitle: 'Suv',
+  // {
+  //   id: 'gadsasdsa',
+  //   // name: 'Shani ',
+  //   // subTitle: 'Suv',
 
-    imageUri:
-      'https://image.shutterstock.com/image-vector/add-icon-new-item-plus-260nw-1315566653.jpg',
-  },
+  //   imageUri:
+  //     'https://image.shutterstock.com/image-vector/add-icon-new-item-plus-260nw-1315566653.jpg',
+  // },
 ];

@@ -12,6 +12,7 @@ import {Avatar, Surface} from 'react-native-paper';
 import {H1, LogoHeader} from '../../component/basic';
 import FeedList from '../../component/FeedComponent/FeedList';
 import ActivitiesList from '../../component/HomeComponent/ActivitiesList';
+import AddBtn from '../../component/HomeComponent/AddBtn';
 import HorizontalListStars from '../../component/HomeComponent/HorizontalListStars';
 import LogoBar from '../../component/HomeComponent/LogoBar';
 import {UsersList} from '../../dummyData';
@@ -59,8 +60,11 @@ const Home = ({navigation}) => {
               numColumns={3}
               // ListFooterComponent={<Text>hello</Text>}
               ListFooterComponentStyle={{height: 100}}
-              renderItem={({item}) => (
-                <HorizontalListStars item={item} navigation={navigation} />
+              renderItem={({item, index}) => (
+                <>
+                  <HorizontalListStars item={item} navigation={navigation} />
+                  {index === UsersList.length - 1 && <AddBtn />}
+                </>
               )}
             />
             <H1>Activity</H1>
